@@ -1,0 +1,23 @@
+.inventory_cell {
+  min-width: 50px;
+  min-height: 50px;
+  margin-bottom: 20px;
+  margin-right: 5px;
+}
+
+.inventory_cell_image {
+  width: 50px;
+  height: 50px;
+  background-color: green;
+  margin: -1px -1px 0 0;
+}
+
+.inventory_cell_empty {
+  background-color: grey;
+}
+
+.border {
+  border: 1px;
+}
+
+
