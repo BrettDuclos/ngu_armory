@@ -4,62 +4,150 @@
     <div class="col-6">
       <div class='row'>
         <div class="col-1 inventory_cell">
-          <img [src]='equippedItems.accessory.'
-          <img [src]='emptyItemIcons.accessory | async' alt=''>
+          <img *ngIf='equippedItems.accessory1.name'
+               [src]='equippedItems.accessory1.img'
+               alt=''
+               (click)='unequip(equippedItems.accessory1)'
+               [matTooltip]='inventoryTooltip(equippedItems.accessory1)'
+          >
+          <img *ngIf='!equippedItems.accessory1.name'
+               [src]='emptyItemIcons.accessory | async' alt=''>
         </div>
         <div class="col-1 inventory_cell">
-          <img [src]='emptyItemIcons.accessory | async' alt=''>
+          <img *ngIf='equippedItems.accessory2.name'
+               [src]='equippedItems.accessory2.img'
+               (click)='unequip(equippedItems.accessory2)'
+               alt=''
+               [matTooltip]='inventoryTooltip(equippedItems.accessory2)'>
+          <img *ngIf='!equippedItems.accessory2.name' [src]='emptyItemIcons.accessory | async' alt=''>
         </div>
         <div class="col-1 inventory_cell">
-          <img [src]='emptyItemIcons.accessory | async' alt=''>
+          <img *ngIf='equippedItems.accessory3.name'
+               [src]='equippedItems.accessory3.img'
+               (click)='unequip(equippedItems.accessory3)'
+               alt=''
+               [matTooltip]='inventoryTooltip(equippedItems.accessory3)'
+          >
+          <img *ngIf='!equippedItems.accessory3.name' [src]='emptyItemIcons.accessory | async' alt=''>
         </div>
         <div class="col-1 inventory_cell">
-          <img *ngIf='headIsEmpty' [src]='emptyItemIcons.head | async' alt=''>
-        </div>
-      </div>
-      <div class='row'>
-        <div class="col-1 inventory_cell">
-          <img [src]='emptyItemIcons.accessory | async' alt=''>
-        </div>
-        <div class="col-1 inventory_cell">
-          <img [src]='emptyItemIcons.accessory | async' alt=''>
-        </div>
-        <div class="col-1 inventory_cell">
-          <img [src]='emptyItemIcons.accessory | async' alt=''>
-        </div>
-        <div class="col-1 inventory_cell">
-          <img [src]='emptyItemIcons.chest | async' alt=''>
-        </div>
-        <div class="col-1 inventory_cell">
-          <img [src]='emptyItemIcons.weapon | async' alt=''>
-        </div>
-      </div>
-      <div class='row'>
-        <div class="col-1 inventory_cell">
-          <img [src]='emptyItemIcons.accessory | async' alt=''>
-        </div>
-        <div class="col-1 inventory_cell">
-          <img [src]='emptyItemIcons.accessory | async' alt=''>
-        </div>
-        <div class="col-1 inventory_cell">
-          <img [src]='emptyItemIcons.accessory | async' alt=''>
-        </div>
-        <div class="col-1 inventory_cell">
-          <img [src]='emptyItemIcons.pants | async' alt=''>
+          <img *ngIf='!equippedItems.head.name' [src]='emptyItemIcons.head | async' alt=''>
+          <img *ngIf='equippedItems.head.name'
+               [src]='equippedItems.head.img'
+               (click)='unequip(equippedItems.head)'
+               alt=''
+               [matTooltip]='inventoryTooltip(equippedItems.head)'>
         </div>
       </div>
       <div class='row'>
         <div class="col-1 inventory_cell">
-          <img [src]='emptyItemIcons.accessory | async' alt=''>
+          <img *ngIf='equippedItems.accessory4.name'
+               [src]='equippedItems.accessory4.img'
+               (click)='unequip(equippedItems.accessory4)'
+               alt=''
+               [matTooltip]='inventoryTooltip(equippedItems.accessory4)'>
+          <img *ngIf='!equippedItems.accessory4.name' [src]='emptyItemIcons.accessory | async' alt=''>
         </div>
         <div class="col-1 inventory_cell">
-          <img [src]='emptyItemIcons.accessory | async' alt=''>
+          <img *ngIf='equippedItems.accessory5.name'
+               [src]='equippedItems.accessory5.img'
+               (click)='unequip(equippedItems.accessory5)'
+               alt=''
+               [matTooltip]='inventoryTooltip(equippedItems.accessory5)'>
+          <img *ngIf='!equippedItems.accessory5.name' [src]='emptyItemIcons.accessory | async' alt=''>
         </div>
         <div class="col-1 inventory_cell">
-          <img [src]='emptyItemIcons.accessory | async' alt=''>
+          <img *ngIf='equippedItems.accessory6.name'
+               [src]='equippedItems.accessory6.img'
+               (click)='unequip(equippedItems.accessory6)'
+               alt=''
+               [matTooltip]='inventoryTooltip(equippedItems.accessory6)'>
+          <img *ngIf='!equippedItems.accessory6.name' [src]='emptyItemIcons.accessory | async' alt=''>
         </div>
         <div class="col-1 inventory_cell">
-          <img [src]='emptyItemIcons.boots | async' alt=''>
+          <img *ngIf='!equippedItems.chest.name' [src]='emptyItemIcons.chest | async' alt=''>
+          <img *ngIf='equippedItems.chest.name'
+               [src]='equippedItems.chest.img'
+               (click)='unequip(equippedItems.chest)'
+               alt=''
+               [matTooltip]='inventoryTooltip(equippedItems.chest)'>
+        </div>
+        <div class="col-1 inventory_cell">
+          <img *ngIf='!equippedItems.weapon.name' [src]='emptyItemIcons.weapon | async' alt=''>
+          <img *ngIf='equippedItems.weapon.name'
+               [src]='equippedItems.weapon.img'
+               (click)='unequip(equippedItems.weapon)'
+               alt=''
+               [matTooltip]='inventoryTooltip(equippedItems.weapon)'>
+        </div>
+      </div>
+      <div class='row'>
+        <div class="col-1 inventory_cell">
+          <img *ngIf='equippedItems.accessory7.name'
+               [src]='equippedItems.accessory7.img'
+               (click)='unequip(equippedItems.accessory7)'
+               alt=''
+               [matTooltip]='inventoryTooltip(equippedItems.accessory7)'>
+          <img *ngIf='!equippedItems.accessory7.name' [src]='emptyItemIcons.accessory | async' alt=''>
+        </div>
+        <div class="col-1 inventory_cell">
+          <img *ngIf='equippedItems.accessory8.name'
+               [src]='equippedItems.accessory8.img'
+               (click)='unequip(equippedItems.accessory8)'
+               alt=''
+               [matTooltip]='inventoryTooltip(equippedItems.accessory8)'>
+          <img *ngIf='!equippedItems.accessory8.name' [src]='emptyItemIcons.accessory | async' alt=''>
+        </div>
+        <div class="col-1 inventory_cell">
+          <img *ngIf='equippedItems.accessory9.name'
+               [src]='equippedItems.accessory9.img'
+               (click)='unequip(equippedItems.accessory9)'
+               alt=''
+               [matTooltip]='inventoryTooltip(equippedItems.accessory9)'>
+          <img *ngIf='!equippedItems.accessory9.name' [src]='emptyItemIcons.accessory | async' alt=''>
+        </div>
+        <div class="col-1 inventory_cell">
+          <img *ngIf='!equippedItems.pants.name' [src]='emptyItemIcons.pants | async' alt=''>
+          <img *ngIf='equippedItems.pants.name'
+               [src]='equippedItems.pants.img'
+               (click)='unequip(equippedItems.pants)'
+               alt=''
+               [matTooltip]='inventoryTooltip(equippedItems.pants)'>
+        </div>
+      </div>
+      <div class='row'>
+        <div class="col-1 inventory_cell">
+          <img *ngIf='equippedItems.accessory10.name'
+               [src]='equippedItems.accessory10.img'
+               (click)='unequip(equippedItems.accessory10)'
+               alt=''
+               [matTooltip]='inventoryTooltip(equippedItems.accessory10)'>
+          <img *ngIf='!equippedItems.accessory10.name' [src]='emptyItemIcons.accessory | async' alt=''>
+        </div>
+        <div class="col-1 inventory_cell">
+          <img *ngIf='equippedItems.accessory11.name'
+               [src]='equippedItems.accessory11.img'
+               (click)='unequip(equippedItems.accessory11)'
+               alt=''
+               [matTooltip]='inventoryTooltip(equippedItems.accessory11)'>
+          <img *ngIf='!equippedItems.accessory11.name' [src]='emptyItemIcons.accessory | async' alt=''>
+        </div>
+        <div class="col-1 inventory_cell">
+          <img *ngIf='equippedItems.accessory12.name'
+               [src]='equippedItems.accessory12.img'
+               (click)='unequip(equippedItems.accessory12)'
+               alt=''
+               [matTooltip]='inventoryTooltip(equippedItems.accessory12)'>
+          <img *ngIf='!equippedItems.accessory12.name' [src]='emptyItemIcons.accessory | async' alt=''>
+        </div>
+        <div class="col-1 inventory_cell">
+          <img *ngIf='!equippedItems.boots.name' [src]='emptyItemIcons.boots | async' alt=''>
+          <img *ngIf='equippedItems.boots.name'
+               [src]='equippedItems.boots.img'
+               (click)='unequip(equippedItems.boots)'
+               alt=''
+               [matTooltip]='inventoryTooltip(equippedItems.boots)'
+          >
         </div>
       </div>
     </div>
@@ -67,19 +155,39 @@
     <div class='col-4'>
       <div style="text-align: center;">EQUIPMENT BONUSES</div>
       <div *ngFor='let stat of totalStats'>
-        <div *ngIf='stat.amount > 0 && isMainStat(stat.stat)'>{{stat.stat}}: {{stat.amount}}</div>
+        <div *ngIf='stat.amount > 0 && isMainStat(stat.stat)'>{{stat.stat}}: {{stat.amount| number}}</div>
       </div>
       <hr>
       <div *ngFor='let stat of totalStats'>
-        <div *ngIf='stat.amount > 0 && !isMainStat(stat.stat)'>{{stat.stat}}: {{stat.amount}}%</div>
+        <div *ngIf='stat.amount > 0 && !isMainStat(stat.stat)'>{{stat.stat}}: {{stat.amount| number}}%</div>
       </div>
     </div>
   </div>
+  <hr>
+  <ng-container *ngIf='groupBySet'>
+    <div *ngFor='let itemSet of inventoryItems'>
+      <div>{{itemSet.setName}}</div>
+      <img *ngFor='let item of itemSet.items'
+           [src]='item.img'
+           [alt]='item.name'
+           [matTooltip]='inventoryTooltip(item)'
+           (click)='equipItem(item)'
+      >
+      <hr>
+    </div>
+  </ng-container>
+  <ng-container *ngIf='!groupBySet'>
+    <div *ngFor='let itemSet of inventoryItemsBySlot'>
+      <div>{{itemSet.slot}}</div>
+      <img *ngFor='let item of itemSet.items'
+           [src]='item.img'
+           [alt]='item.name'
+           [matTooltip]='inventoryTooltip(item)'
+           (click)='equipItem(item)'
+      >
+      <hr>
+    </div>
+  </ng-container>
 </div>
-<hr>
-<img *ngFor='let item of inventoryItems.two_d'
-     [src]='item.img'
-     [alt]='item.name'
-     [matTooltip]='inventoryTooltip(item)'
-     (click)='equipItem(item)'
->
+
+
