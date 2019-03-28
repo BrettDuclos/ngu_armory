@@ -45,7 +45,7 @@ export enum Stat {
   AUGMENT_SPEED = 'Augment Speed',
   BEARD_SPEED = 'Beard Speed',
   SEED_DROP = 'Seed Gain',
-  DROP_CHANCE = 'Drop Chance'
+  DROP_CHANCE = 'Drop Chance',
 }
 
 export enum SetName {
@@ -76,7 +76,9 @@ export enum SetName {
   EDGY = 'Edgy Set',
   PINK = 'Pretty Pink Princess Set',
   NERD = 'Greasy Nerd Set',
-  META = 'Meta Set'
+  META = 'Meta Set',
+  PARTY = "Party Set",
+  MOBSTER = "Mobster Set"
 }
 
 
@@ -230,6 +232,7 @@ export const itemList = [
         ],
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/92/147_-_Bearded_Axe.png/',
       },
+
       {
         name: 'Groucho Marx Disguise', slot: Slot.HEAD, stats: [
           {stat: Stat.POWER, value: 2200},
@@ -268,6 +271,18 @@ export const itemList = [
           {stat: Stat.ENERGY_CAP, value: 40},
         ],
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/c/cc/146_-_Fuzzy_Orange_Cheeto_Slippers%21.png/',
+      },
+      {
+        name: 'An Infinitely Long Strand of Beard Hair',
+        slot: Slot.ACCESSORY,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/e/e5/148_-_An_Infinitely_Long_Strand_of_Beard_Hair.png/revision/latest?cb=20180730130833',
+        stats: [
+          {stat: Stat.POWER, value: 16000},
+          {stat: Stat.TOUGHNESS, value: 16000},
+          {stat: Stat.BEARD_SPEED, value: 20},
+          {stat: Stat.ENERGY_POWER, value: 900},
+          {stat: Stat.MAGIC_POWER, value: 700},
+        ],
       },
     ],
   },
@@ -600,6 +615,17 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/a/a3/122_-_Gaudy_Hat.png/revision/latest?cb=20180420182814',
       },
       {
+        name: 'A Beanie',
+        slot: Slot.HEAD,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/b/b7/127_-_A_Beanie.png/revision/latest?cb=20180420183047',
+        stats: [
+          {stat: Stat.POWER, value: 4000},
+          {stat: Stat.TOUGHNESS, value: 6000},
+          {stat: Stat.MAGIC_CAP, value: 106},
+          {stat: Stat.MAGIC_POWER, value: 359.8},
+        ],
+      },
+      {
         name: 'Gaudy Shirt', slot: Slot.CHEST, stats: [
           {stat: Stat.POWER, value: 500},
           {stat: Stat.TOUGHNESS, value: 4800},
@@ -778,6 +804,16 @@ export const itemList = [
           {stat: Stat.TOUGHNESS, value: 2600},
           {stat: Stat.ENERGY_POWER, value: 336.4},
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/1/1e/114_-_Office_Shoes.png/revision/latest?cb=20180420182540',
+      },
+      {
+        name: 'Stapler',
+        slot: Slot.ACCESSORY,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/a/a9/118_-_Stapler.png/revision/latest?cb=20180420182738',
+        stats: [
+          {stat: Stat.POWER, value: 500},
+          {stat: Stat.ENERGY_CAP, value: 60},
+          {stat: Stat.RESPAWN, value: 12},
+        ],
       },
       {
         name: 'A Regular Tie', slot: Slot.ACCESSORY, stats: [
@@ -1078,7 +1114,18 @@ export const itemList = [
         ],
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/3/3e/109_-_Amulet_of_Sunshine%2C_Sparkles_and_Gore.png/revision/latest?cb=20180420182230',
       },
-
+      {
+        name: 'Dragon Wings',
+        slot: Slot.ACCESSORY,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/f/f0/110_-_Dragon_Wings.png/revision/latest?cb=20180420182304',
+        stats: [
+          {stat: Stat.POWER, value: 163},
+          {stat: Stat.TOUGHNESS, value: 163},
+          {stat: Stat.GOLD_DROP, value: 400},
+          {stat: Stat.MAGIC_CAP, value: 45.64},
+          {stat: Stat.MAGIC_POWER, value: 216.2},
+        ],
+      },
     ],
   },
   {
@@ -1111,6 +1158,20 @@ export const itemList = [
           {stat: Stat.MAGIC_POWER, value: 1800},
           {stat: Stat.MAGIC_BARS, value: 3800},
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/7a/174_-_Stealthy_Chest.png/revision/latest?cb=20180805092615',
+      },
+      {
+        name: 'The Stealthiest Armour',
+        slot: Slot.CHEST,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/3/30/178_-_The_Stealthiest_Armour.png/revision/latest?cb=20180805093107',
+        stats: [
+          {stat: Stat.POWER, value: 16000},
+          {stat: Stat.TOUGHNESS, value: 300000},
+          {stat: Stat.ENERGY_BARS, value: 4000},
+          {stat: Stat.ENERGY_CAP, value: 420},
+          {stat: Stat.MAGIC_BARS, value: 4000},
+          {stat: Stat.MAGIC_CAP, value: 420},
+          {stat: Stat.NGU_SPEED, value: 400},
+        ],
       },
       {
         name: 'No Pants', slot: Slot.PANTS, stats: [
@@ -1276,6 +1337,20 @@ export const itemList = [
         ],
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/3/35/153_-_Wanderer%27s_Boots.png/revision/latest?cb=20180619091715',
       },
+      {
+        name: 'Fanny Pack',
+        slot: Slot.ACCESSORY,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/8/8d/160_-_Fanny_Pack.png/revision/latest?cb=20180619111636',
+        stats: [
+          {stat: Stat.POWER, value: 30000},
+          {stat: Stat.TOUGHNESS, value: 30000},
+          {stat: Stat.DROP_CHANCE, value: 60},
+          {stat: Stat.ENERGY_CAP, value: 60},
+          {stat: Stat.MAGIC_CAP, value: 60},
+          {stat: Stat.ENERGY_POWER, value: 1000},
+          {stat: Stat.MAGIC_POWER, value: 1000},
+        ],
+      },
     ],
   },
   {
@@ -1324,6 +1399,20 @@ export const itemList = [
         ],
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/8/8a/158_-_stooB_s%27rerednaW.png/revision/latest?cb=20180619081719',
       },
+      {
+        name: 'Dorky Glasses',
+        slot: Slot.ACCESSORY,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/e/ec/161_-_Dorky_Glasses.png/revision/latest?cb=20180619111717',
+        stats: [
+          {stat: Stat.POWER, value: 10000},
+          {stat: Stat.TOUGHNESS, value: 10000},
+          {stat: Stat.ENERGY_BARS, value: 1000},
+          {stat: Stat.MAGIC_BARS, value: 1000},
+          {stat: Stat.NGU_SPEED, value: 300},
+          {stat: Stat.WANDOOS_SPEED, value: 240},
+        ],
+      },
+
     ],
   },
   {
@@ -1456,101 +1545,12 @@ export const itemList = [
   {
     setName: SetName.OTHER,
     items: [
-
-      {
-        name: 'An Infinitely Long Strand of Beard Hair',
-        slot: Slot.ACCESSORY,
-        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/e/e5/148_-_An_Infinitely_Long_Strand_of_Beard_Hair.png/revision/latest?cb=20180730130833',
-        stats: [
-          {stat: Stat.POWER, value: 16000},
-          {stat: Stat.TOUGHNESS, value: 16000},
-          {stat: Stat.BEARD_SPEED, value: 20},
-          {stat: Stat.ENERGY_POWER, value: 900},
-          {stat: Stat.MAGIC_POWER, value: 700},
-        ],
-      },
-      {
-        name: 'Dorky Glasses',
-        slot: Slot.ACCESSORY,
-        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/e/ec/161_-_Dorky_Glasses.png/revision/latest?cb=20180619111717',
-        stats: [
-          {stat: Stat.POWER, value: 10000},
-          {stat: Stat.TOUGHNESS, value: 10000},
-          {stat: Stat.ENERGY_BARS, value: 1000},
-          {stat: Stat.MAGIC_BARS, value: 1000},
-          {stat: Stat.NGU_SPEED, value: 300},
-          {stat: Stat.WANDOOS_SPEED, value: 240},
-        ],
-      },
-      {
-        name: 'Dragon Wings',
-        slot: Slot.ACCESSORY,
-        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/f/f0/110_-_Dragon_Wings.png/revision/latest?cb=20180420182304',
-        stats: [
-          {stat: Stat.POWER, value: 163},
-          {stat: Stat.TOUGHNESS, value: 163},
-          {stat: Stat.GOLD_DROP, value: 400},
-          {stat: Stat.MAGIC_CAP, value: 45.64},
-          {stat: Stat.MAGIC_POWER, value: 216.2},
-        ],
-      },
-
-      {
-        name: 'Fanny Pack',
-        slot: Slot.ACCESSORY,
-        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/8/8d/160_-_Fanny_Pack.png/revision/latest?cb=20180619111636',
-        stats: [
-          {stat: Stat.POWER, value: 30000},
-          {stat: Stat.TOUGHNESS, value: 30000},
-          {stat: Stat.DROP_CHANCE, value: 60},
-          {stat: Stat.ENERGY_CAP, value: 60},
-          {stat: Stat.MAGIC_CAP, value: 60},
-          {stat: Stat.ENERGY_POWER, value: 1000},
-          {stat: Stat.MAGIC_POWER, value: 1000},
-        ],
-      },
-
-      {
-        name: 'Stapler',
-        slot: Slot.ACCESSORY,
-        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/a/a9/118_-_Stapler.png/revision/latest?cb=20180420182738',
-        stats: [
-          {stat: Stat.POWER, value: 500},
-          {stat: Stat.ENERGY_CAP, value: 60},
-          {stat: Stat.RESPAWN, value: 12},
-        ],
-      },
       {
         name: 'The Triple Flubber',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/9c/121_-_The_Triple_Flubber.png/revision/latest?cb=20180402160149',
         stats: [
           {stat: Stat.RESPAWN, value: 8},
-        ],
-      },
-      {
-        name: 'The Stealthiest Armour',
-        slot: Slot.CHEST,
-        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/3/30/178_-_The_Stealthiest_Armour.png/revision/latest?cb=20180805093107',
-        stats: [
-          {stat: Stat.POWER, value: 16000},
-          {stat: Stat.TOUGHNESS, value: 300000},
-          {stat: Stat.ENERGY_BARS, value: 4000},
-          {stat: Stat.ENERGY_CAP, value: 420},
-          {stat: Stat.MAGIC_BARS, value: 4000},
-          {stat: Stat.MAGIC_CAP, value: 420},
-          {stat: Stat.NGU_SPEED, value: 400},
-        ],
-      },
-      {
-        name: 'A Beanie',
-        slot: Slot.HEAD,
-        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/b/b7/127_-_A_Beanie.png/revision/latest?cb=20180420183047',
-        stats: [
-          {stat: Stat.POWER, value: 4000},
-          {stat: Stat.TOUGHNESS, value: 6000},
-          {stat: Stat.MAGIC_CAP, value: 106},
-          {stat: Stat.MAGIC_POWER, value: 359.8},
         ],
       },
     ],
@@ -1650,7 +1650,7 @@ export const itemList = [
       },
       {
         name: 'A Cheap Plastik Amulet',
-        slot: Slot.WEAPON,
+        slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/8/83/218_-_A_Cheap_Plastik_Amulet.png/revision/latest?cb=20181203104051',
         stats: [
           {stat: Stat.POWER, value: 300000},
@@ -1894,7 +1894,7 @@ export const itemList = [
       {
         name: 'Heart Shaped Panties',
         slot: Slot.ACCESSORY,
-        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/9c/121_-_The_Triple_Flubber.png/revision/latest?cb=20180402160149',
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/d/dd/249.png/revision/latest?cb=20190124103356',
         stats: [
           {stat: Stat.POWER, value: 1333332},
           {stat: Stat.TOUGHNESS, value: 1333332},
@@ -1996,6 +1996,261 @@ export const itemList = [
           {stat: Stat.MAGIC_CAP, value: 1777.78},
           {stat: Stat.MOVE_COOLDOWN, value: 10},
           {stat: Stat.SEED_DROP, value: 80},
+        ],
+      },
+    ],
+  },
+  {
+    setName: SetName.PARTY, items: [
+      {
+        name: 'Party Hat',
+        slot: Slot.HEAD,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/92/258_-_Party_Hat.png/revision/latest?cb=20190210184658',
+        stats: [
+          {stat: Stat.POWER, value: 500000},
+          {stat: Stat.TOUGHNESS, value: 9000000},
+          {stat: Stat.MAGIC_CAP, value: 3000},
+          {stat: Stat.MAGIC_POWER, value: 32000},
+          {stat: Stat.MAGIC_BARS, value: 16000},
+          {stat: Stat.ENERGY_BARS, value: 16000},
+        ],
+      },
+      {
+        name: 'Pogmail Chest',
+        slot: Slot.CHEST,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/9b/259_-_Pogmail_Chest.png/revision/latest?cb=20190210184714',
+        stats: [
+          {stat: Stat.POWER, value: 500000},
+          {stat: Stat.TOUGHNESS, value: 9000000},
+          {stat: Stat.ENERGY_CAP, value: 3200},
+          {stat: Stat.MAGIC_POWER, value: 22000},
+          {stat: Stat.ENERGY_POWER, value: 22000},
+          {stat: Stat.MAGIC_BARS, value: 20000},
+        ],
+      },
+      {
+        name: 'Numerical Legs',
+        slot: Slot.PANTS,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/76/Numerical_Legs.png/revision/latest?cb=20190202042153',
+        stats: [
+          {stat: Stat.POWER, value: 500000},
+          {stat: Stat.TOUGHNESS, value: 9000000},
+          {stat: Stat.ENERGY_POWER, value: 20000},
+          {stat: Stat.MAGIC_POWER, value: 20000},
+          {stat: Stat.MAGIC_CAP, value: 2400},
+          {stat: Stat.MAGIC_BARS, value: 2400},
+        ],
+      },
+      {
+        name: 'Pizza Boots',
+        slot: Slot.BOOTS,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/1/11/261_-_Pizza_Boots.png/revision/latest?cb=20190210184753',
+        stats: [
+          {stat: Stat.POWER, value: 500000},
+          {stat: Stat.TOUGHNESS, value: 9000000},
+          {stat: Stat.ENERGY_CAP, value: 2400},
+          {stat: Stat.MAGIC_CAP, value: 2400},
+          {stat: Stat.ENERGY_BARS, value: 20000},
+          {stat: Stat.MAGIC_POWER, value: 20000},
+        ],
+      },
+      {
+        name: 'The God of Thunder\'s Hammer',
+        slot: Slot.WEAPON,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/1/14/262_-_The_God_of_Thunder%27s_Hammer.png/revision/latest?cb=20190210184820',
+        stats: [
+          {stat: Stat.POWER, value: 100000000},
+          {stat: Stat.TOUGHNESS, value: 4000000},
+          {stat: Stat.MAGIC_POWER, value: 20000},
+          {stat: Stat.ENERGY_POWER, value: 20000},
+          {stat: Stat.ENERGY_CAP, value: 2600},
+          {stat: Stat.ENERGY_BARS, value: 20000},
+        ],
+      },
+      {
+        name: 'Plastic Red Cup',
+        slot: Slot.ACCESSORY,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/2/2b/263_-_Plastic_Red_Cup.png/revision/latest?cb=20190210184842',
+        stats: [
+          {stat: Stat.POWER, value: 3000000},
+          {stat: Stat.TOUGHNESS, value: 2000000},
+          {stat: Stat.ENERGY_CAP, value: 2400},
+          {stat: Stat.MAGIC_CAP, value: 2400},
+          {stat: Stat.ENERGY_BARS, value: 20000},
+          {stat: Stat.MAGIC_BARS, value: 20000},
+          {stat: Stat.GOLD_DROP, value: 16000},
+        ],
+      },
+      {
+        name: 'Party Whistle',
+        slot: Slot.ACCESSORY,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/a/a1/264_-_Party_Whistle.png/revision/latest?cb=20190210184912',
+        stats: [
+          {stat: Stat.POWER, value: 4000000},
+          {stat: Stat.TOUGHNESS, value: 4000000},
+          {stat: Stat.NGU_SPEED, value: 400},
+          {stat: Stat.ENERGY_POWER, value: 20000},
+          {stat: Stat.MAGIC_POWER, value: 20000},
+          {stat: Stat.YGGDRASIL_YIELD, value: 10},
+        ],
+      },
+    ],
+  },
+  {
+    setName: SetName.MOBSTER, items: [
+      {
+        name: 'Mobster Hat',
+        slot: Slot.HEAD,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/0/08/265_-_Mobster_Hat.png/revision/latest?cb=20190304210613',
+        stats: [
+          {stat: Stat.POWER, value: 800000},
+          {stat: Stat.TOUGHNESS, value: 20000000},
+          {stat: Stat.ENERGY_POWER, value: 32000},
+          {stat: Stat.ENERGY_CAP, value: 3200},
+          {stat: Stat.MAGIC_CAP, value: 3200},
+          {stat: Stat.ENERGY_BARS, value: 22000},
+        ],
+      },
+      {
+        name: 'Mobster Vest',
+        slot: Slot.CHEST,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/e/ec/266_-_Mobster_Vest.png/revision/latest?cb=20190304210627',
+        stats: [
+          {stat: Stat.POWER, value: 800000},
+          {stat: Stat.TOUGHNESS, value: 20000000},
+          {stat: Stat.ENERGY_CAP, value: 3200},
+          {stat: Stat.MAGIC_CAP, value: 3200},
+          {stat: Stat.MAGIC_POWER, value: 36000},
+          {stat: Stat.MAGIC_BARS, value: 20000},
+        ],
+      },
+      {
+        name: 'Mobster Pants',
+        slot: Slot.PANTS,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/2/2c/267_-_Mobster_Pants.png/revision/latest?cb=20190304210640',
+        stats: [
+          {stat: Stat.POWER, value: 800000},
+          {stat: Stat.TOUGHNESS, value: 20000000},
+          {stat: Stat.ENERGY_POWER, value: 26000},
+          {stat: Stat.MAGIC_POWER, value: 26000},
+          {stat: Stat.ENERGY_BARS, value: 24000},
+          {stat: Stat.ENERGY_CAP, value: 2800},
+        ],
+      },
+      {
+        name: 'Cement Boots',
+        slot: Slot.BOOTS,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/8/82/268_-_Cement_Boots.png/revision/latest?cb=20190304210649',
+        stats: [
+          {stat: Stat.POWER, value: 800000},
+          {stat: Stat.TOUGHNESS, value: 20000000},
+          {stat: Stat.ENERGY_POWER, value: 28000},
+          {stat: Stat.MAGIC_POWER, value: 28000},
+          {stat: Stat.ENERGY_CAP, value: 2600},
+          {stat: Stat.MAGIC_BARS, value: 28000},
+        ],
+      },
+      {
+        name: 'Tommy Gun',
+        slot: Slot.WEAPON,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/9e/269_-_Tommy_Gun.png/revision/latest?cb=20190304210655',
+        stats: [
+          {stat: Stat.POWER, value: 200000000},
+          {stat: Stat.TOUGHNESS, value: 8000000},
+          {stat: Stat.MAGIC_POWER, value: 20000},
+          {stat: Stat.ENERGY_POWER, value: 20000},
+          {stat: Stat.MAGIC_CAP, value: 3600},
+          {stat: Stat.ENERGY_BARS, value: 26000},
+          {stat: Stat.MAGIC_BARS, value: 26000},
+        ],
+      },
+      {
+        name: 'A Garrote',
+        slot: Slot.ACCESSORY,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/4/4d/270_-_A_Garrote.png/revision/latest?cb=20190304210702',
+        stats: [
+          {stat: Stat.POWER, value: 8000000},
+          {stat: Stat.TOUGHNESS, value: 8000000},
+          {stat: Stat.DAYCARE_SPEED, value: 20},
+          {stat: Stat.ENERGY_POWER, value: 22000},
+          {stat: Stat.MAGIC_POWER, value: 22000},
+          {stat: Stat.DROP_CHANCE, value: 600},
+        ],
+      },
+      {
+        name: 'Brass Knuckles',
+        slot: Slot.ACCESSORY,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/71/271_-_Brass_Knuckles.png/revision/latest?cb=20190304210708',
+        stats: [
+          {stat: Stat.POWER, value: 7000000},
+          {stat: Stat.TOUGHNESS, value: 7000000},
+          {stat: Stat.ENERGY_CAP, value: 1800},
+          {stat: Stat.MAGIC_CAP, value: 1800},
+          {stat: Stat.ENERGY_POWER, value: 20000},
+          {stat: Stat.MAGIC_POWER, value: 20000},
+          {stat: Stat.GOLD_DROP, value: 24000},
+        ],
+      },
+      {
+        name: 'Molotov Cocktail',
+        slot: Slot.ACCESSORY,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/71/271_-_Brass_Knuckles.png/revision/latest?cb=20190304210708',
+        stats: [
+          {stat: Stat.POWER, value: 20000000},
+          {stat: Stat.TOUGHNESS, value: 20000000},
+          {stat: Stat.NGU_SPEED, value: 400},
+          {stat: Stat.SEED_DROP, value: 100},
+          {stat: Stat.WANDOOS_SPEED, value: 1600},
+        ],
+      },
+      {
+        name: 'Violin Case',
+        slot: Slot.ACCESSORY,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/71/271_-_Brass_Knuckles.png/revision/latest?cb=20190304210708',
+        stats: [
+          {stat: Stat.POWER, value: 14000000},
+          {stat: Stat.TOUGHNESS, value: 14000000},
+          {stat: Stat.ENERGY_POWER, value: 26000},
+          {stat: Stat.MAGIC_POWER, value: 26000},
+          {stat: Stat.ENERGY_CAP, value: 2600},
+          {stat: Stat.MAGIC_CAP, value: 2600},
+          {stat: Stat.ENERGY_BARS, value: 26000},
+          {stat: Stat.MAGIC_BARS, value: 26000},
+        ],
+      },
+      {
+        name: 'The Godmother\'s Ring',
+        slot: Slot.ACCESSORY,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/71/271_-_Brass_Knuckles.png/revision/latest?cb=20190304210708',
+        stats: [
+          {stat: Stat.POWER, value: 30000000},
+          {stat: Stat.TOUGHNESS, value: 30000000},
+          {stat: Stat.GOLD_DROP, value: 50000},
+          {stat: Stat.DROP_CHANCE, value: 1000},
+        ],
+      },
+      {
+        name: 'Left Fairy Wing',
+        slot: Slot.ACCESSORY,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/71/271_-_Brass_Knuckles.png/revision/latest?cb=20190304210708',
+        stats: [
+          {stat: Stat.POWER, value: 80000000},
+          {stat: Stat.TOUGHNESS, value: 80000000},
+          {stat: Stat.ENERGY_POWER, value: 66000},
+          {stat: Stat.ENERGY_BARS, value: 66000},
+          {stat: Stat.ENERGY_CAP, value: 6600},
+        ],
+      },
+      {
+        name: 'Right Fairy Wing',
+        slot: Slot.ACCESSORY,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/71/271_-_Brass_Knuckles.png/revision/latest?cb=20190304210708',
+        stats: [
+          {stat: Stat.POWER, value: 80000000},
+          {stat: Stat.TOUGHNESS, value: 80000000},
+          {stat: Stat.MAGIC_POWER, value: 66000},
+          {stat: Stat.MAGIC_BARS, value: 66000},
+          {stat: Stat.MAGIC_CAP, value: 6600},
         ],
       },
     ],

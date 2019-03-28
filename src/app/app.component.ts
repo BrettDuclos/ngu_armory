@@ -9,17 +9,24 @@ import {InventoryService} from './servies/inventory.service';
 })
 export class AppComponent implements OnInit {
   totalStats: {stat: Stat, amount: number}[];
+  savedStats: {stat: Stat, amount: number}[];
+  totalNguSpeed = {
+    energy: 0,
+    magic: 0,
+  };
   emptyItemIcons;
   inventoryItems;
   inventoryItemsBySlot;
   equippedItems;
-  groupBySet: false;
+  groupBySet = false;
 
   constructor(private inventoryService: InventoryService) {
 
   }
 
   ngOnInit() {
+    this.totalStats = this.inventoryService.totalStats;
+    this.savedStats = this.inventoryService.savedStats;
     this.emptyItemIcons = this.inventoryService.emptyItemIcons;
     this.inventoryService.equippedItemChanged.subscribe((items: Item[]) => {
       this.equippedItems = items;
@@ -29,7 +36,6 @@ export class AppComponent implements OnInit {
     });
     this.inventoryItems = itemList;
     this.inventoryItemsBySlot = this.groupItemsBySlot();
-    console.log(this.inventoryItemsBySlot)
     this.equippedItems = this.inventoryService.eqItems;
   }
 
@@ -52,8 +58,14 @@ export class AppComponent implements OnInit {
     return tooltip;
   }
 
-  isMainStat(stat: Stat) {
+  isMainStat(stat: Stat): boolean {
     return stat === Stat.POWER || stat === Stat.TOUGHNESS;
+  }
+
+  isStatPresented(stat: Stat): boolean {
+    const savedStat = this.savedStats.find(fStat => fStat.stat === stat);
+    const totalStat = this.totalStats.find(fStat => fStat.stat === stat);
+    return savedStat.amount != 0 || totalStat.amount != 0;
   }
 
   groupItemsBySlot() {
@@ -75,4 +87,56 @@ export class AppComponent implements OnInit {
     return items;
   }
 
+  public saveEquipment() {
+    this.totalNguSpeed.energy = this.energyNgu();
+    this.totalNguSpeed.magic = this.magicNgu();
+    this.inventoryService.saveEquipment();
+  }
+
+  public statDif(stat: {stat: Stat, amount: number}) {
+    const foundStat = this.savedStats.find((foundStat) => foundStat.stat === stat.stat);
+    if (foundStat) {
+      return stat.amount - foundStat.amount;
+    }
+    return 0;
+  }
+
+  public textColor(value: number) {
+    if (value > 0) {
+      return 'green';
+    } else if (value < 0) {
+      return 'red';
+    }
+    return '';
+  }
+
+  public statDifMNGU() {
+    return this.magicNgu() - this.totalNguSpeed.magic;
+  }
+
+
+  public statDifENGU() {
+    return this.energyNgu() - this.totalNguSpeed.energy;
+  }
+
+  public energyNgu() {
+    let ePower = this.totalStats.find((stat) => stat.stat === Stat.ENERGY_POWER).amount;
+    if (ePower == 0) {
+      ePower = 1;
+    }
+    return this.nguSpeed() * ePower;
+  }
+
+  public magicNgu() {
+    let mPower = this.totalStats.find((stat) => stat.stat === Stat.MAGIC_POWER).amount;
+    if (mPower == 0) {
+      mPower = 1;
+    }
+    return this.nguSpeed() * mPower;
+  }
+
+  private nguSpeed() {
+    const stat = this.totalStats.find((stat) => stat.stat === Stat.NGU_SPEED);
+    return stat.amount === 0 ? 1 : stat.amount / 100;
+  }
 }

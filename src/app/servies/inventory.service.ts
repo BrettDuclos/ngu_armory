@@ -8,33 +8,8 @@ import {AngularFireStorage} from '@angular/fire/storage';
 export class InventoryService {
   equippedItemChanged = new Subject<Item[]>();
   totalStatsChanges = new Subject<{stat: Stat, amount: number}[]>();
-  totalStats: {stat: Stat, amount: number}[] = [
-    {stat: Stat.POWER, amount: 0},
-    {stat: Stat.TOUGHNESS, amount: 0},
-    {stat: Stat.ENERGY_POWER, amount: 0},
-    {stat: Stat.ENERGY_CAP, amount: 0},
-    {stat: Stat.ENERGY_BARS, amount: 0},
-    {stat: Stat.MAGIC_POWER, amount: 0},
-    {stat: Stat.MAGIC_CAP, amount: 0},
-    {stat: Stat.MAGIC_BARS, amount: 0},
-    {stat: Stat.WANDOOS_SPEED, amount: 0},
-    {stat: Stat.ADVANCE_TRAINING, amount: 0},
-    {stat: Stat.NGU_SPEED, amount: 0},
-    {stat: Stat.AUGMENT_SPEED, amount: 0},
-    {stat: Stat.GOLD_DROP, amount: 0},
-    {stat: Stat.BEARD_SPEED, amount: 0},
-    {stat: Stat.SEED_DROP, amount: 0},
-    {stat: Stat.DROP_CHANCE, amount: 0},
-    {stat: Stat.EXPERIENCE, amount: 0},
-    {stat: Stat.RESPAWN, amount: 0},
-    {stat: Stat.AP, amount: 0},
-    {stat: Stat.QUEST_DROP, amount: 0},
-    {stat: Stat.MAGIC_SPEED, amount: 0},
-    {stat: Stat.ENERGY_SPEED, amount: 0},
-    {stat: Stat.MOVE_COOLDOWN, amount: 0},
-    {stat: Stat.YGGDRASIL_YIELD, amount: 0},
-    {stat: Stat.DAYCARE_SPEED, amount: 0},
-  ];
+  savedStats: {stat: Stat, amount: number}[];
+  totalStats: {stat: Stat, amount: number}[];
   emptyItemIcons = {
     weapon: null,
     head: null,
@@ -72,7 +47,39 @@ export class InventoryService {
     accessory12: this.emptySlot.emptyAccessory,
   };
 
+  private initStats() {
+    return [
+      {stat: Stat.POWER, amount: 0},
+      {stat: Stat.TOUGHNESS, amount: 0},
+      {stat: Stat.ENERGY_POWER, amount: 0},
+      {stat: Stat.ENERGY_CAP, amount: 0},
+      {stat: Stat.ENERGY_BARS, amount: 0},
+      {stat: Stat.MAGIC_POWER, amount: 0},
+      {stat: Stat.MAGIC_CAP, amount: 0},
+      {stat: Stat.MAGIC_BARS, amount: 0},
+      {stat: Stat.WANDOOS_SPEED, amount: 0},
+      {stat: Stat.ADVANCE_TRAINING, amount: 0},
+      {stat: Stat.NGU_SPEED, amount: 0},
+      {stat: Stat.AUGMENT_SPEED, amount: 0},
+      {stat: Stat.GOLD_DROP, amount: 0},
+      {stat: Stat.BEARD_SPEED, amount: 0},
+      {stat: Stat.SEED_DROP, amount: 0},
+      {stat: Stat.DROP_CHANCE, amount: 0},
+      {stat: Stat.EXPERIENCE, amount: 0},
+      {stat: Stat.RESPAWN, amount: 0},
+      {stat: Stat.AP, amount: 0},
+      {stat: Stat.QUEST_DROP, amount: 0},
+      {stat: Stat.MAGIC_SPEED, amount: 0},
+      {stat: Stat.ENERGY_SPEED, amount: 0},
+      {stat: Stat.MOVE_COOLDOWN, amount: 0},
+      {stat: Stat.YGGDRASIL_YIELD, amount: 0},
+      {stat: Stat.DAYCARE_SPEED, amount: 0},
+    ]
+  }
+
   constructor(private storage: AngularFireStorage) {
+    this.totalStats = this.initStats();
+    this.savedStats = this.initStats();
     const emptySlotRef = this.storage.ref('empty_slot');
     this.emptyItemIcons.weapon = emptySlotRef.child('weapon.png').getDownloadURL();
     this.emptyItemIcons.accessory = emptySlotRef.child('accessory.png').getDownloadURL();
@@ -106,7 +113,6 @@ export class InventoryService {
         this.equipAccessory(item);
         break;
     }
-    console.log(this.eqItems);
     this.equippedChanged();
   }
 
@@ -135,7 +141,6 @@ export class InventoryService {
   }
 
   equippedChanged() {
-    // this.equippedItemChanged.next(this.eqItems);
     this.totalStats.forEach((stat) => {
       stat.amount = 0;
     });
@@ -146,6 +151,19 @@ export class InventoryService {
         });
       });
     this.totalStatsChanges.next(this.totalStats);
+  }
+
+
+  saveEquipment() {
+    this.savedStats.forEach((stat) => {
+      stat.amount = 0;
+    });
+    Object.keys(this.eqItems)
+      .forEach((item) => {
+        this.eqItems[item].stats.forEach((stat) => {
+          this.savedStats.find((fStat) => stat.stat === fStat.stat).amount += stat.value;
+        });
+      });
   }
 
 
