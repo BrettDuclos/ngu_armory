@@ -207,13 +207,13 @@
       </div>
       <ng-container *ngIf='groupBySet'>
         <div *ngFor='let itemSet of inventoryItems'>
-            <div>{{itemSet.setName}}</div>
-            <img *ngFor='let item of itemSet.items'
-                 [src]='item.img'
-                 [alt]='item.name'
-                 [matTooltip]='inventoryTooltip(item)'
-                 (click)='equipItem(item)'
-            >
+          <div>{{itemSet.setName}}</div>
+          <img *ngFor='let item of itemSet.items'
+               [src]='item.img'
+               [alt]='item.name'
+               [matTooltip]='inventoryTooltip(item)'
+               (click)='equipItem(item)'
+          >
           <hr>
         </div>
       </ng-container>
