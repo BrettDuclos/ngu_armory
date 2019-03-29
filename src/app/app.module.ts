@@ -21,6 +21,7 @@ import {AngularFireStorageModule} from '@angular/fire/storage';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
     MatSidenavModule,
+
   ],
   providers: [InventoryService],
   bootstrap: [AppComponent],

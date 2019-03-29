@@ -164,13 +164,13 @@
             <div *ngIf='isStatPresented(stat.stat) && isMainStat'>
               {{stat.stat}}: {{stat.amount| number}}
               (<span [style.color]='textColor(statDif(stat))'>
-                {{statDif(stat) | number}}
+                {{statDif(stat) | number: '0.0-0'}}%
               </span>)
             </div>
           </div>
           <div *ngFor='let stat of totalStats'>
             <div *ngIf='isStatPresented(stat.stat) && !isMainStat'>
-              {{stat.stat}}: {{stat.amount| number}}%
+              {{stat.stat}}: {{stat.amount| number: '0.0-0'}}%
               (<span [style.color]='textColor(statDif(stat))'>
           {{statDif(stat) | number}}
           </span>)
@@ -180,13 +180,13 @@
           <div>
             ENGU speed: {{energyNgu() | number}}
             (<span [style.color]='textColor(statDifENGU())'>
-          {{statDifENGU() | number}}
+          {{statDifENGU() | number: '0.0-0'}}%
           </span>)
           </div>
           <div>
             MNGU speed: {{magicNgu() | number}}
             (<span [style.color]='textColor(statDifMNGU())'>
-          {{statDifMNGU() | number}}
+          {{statDifMNGU() | number: '0.0-0'}}%
           </span>)
 
           </div>
@@ -207,13 +207,13 @@
       </div>
       <ng-container *ngIf='groupBySet'>
         <div *ngFor='let itemSet of inventoryItems'>
-          <div>{{itemSet.setName}}</div>
-          <img *ngFor='let item of itemSet.items'
-               [src]='item.img'
-               [alt]='item.name'
-               [matTooltip]='inventoryTooltip(item)'
-               (click)='equipItem(item)'
-          >
+            <div>{{itemSet.setName}}</div>
+            <img *ngFor='let item of itemSet.items'
+                 [src]='item.img'
+                 [alt]='item.name'
+                 [matTooltip]='inventoryTooltip(item)'
+                 (click)='equipItem(item)'
+            >
           <hr>
         </div>
       </ng-container>

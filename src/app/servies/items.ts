@@ -2029,9 +2029,9 @@ export const itemList = [
         ],
       },
       {
-        name: 'Numerical Legs',
+        name: 'Tear Away Pants',
         slot: Slot.PANTS,
-        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/76/Numerical_Legs.png/revision/latest?cb=20190202042153',
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/4/42/260_-_Tear_Away_Pants.png/revision/latest?cb=20190210184733',
         stats: [
           {stat: Stat.POWER, value: 500000},
           {stat: Stat.TOUGHNESS, value: 9000000},

@@ -10,7 +10,7 @@ import {InventoryService} from './servies/inventory.service';
 export class AppComponent implements OnInit {
   totalStats: {stat: Stat, amount: number}[];
   savedStats: {stat: Stat, amount: number}[];
-  totalNguSpeed = {
+  savedTotalNguSpeed = {
     energy: 0,
     magic: 0,
   };
@@ -21,7 +21,6 @@ export class AppComponent implements OnInit {
   groupBySet = false;
 
   constructor(private inventoryService: InventoryService) {
-
   }
 
   ngOnInit() {
@@ -88,15 +87,18 @@ export class AppComponent implements OnInit {
   }
 
   public saveEquipment() {
-    this.totalNguSpeed.energy = this.energyNgu();
-    this.totalNguSpeed.magic = this.magicNgu();
+    this.savedTotalNguSpeed.energy = this.energyNgu();
+    this.savedTotalNguSpeed.magic = this.magicNgu();
     this.inventoryService.saveEquipment();
   }
 
   public statDif(stat: {stat: Stat, amount: number}) {
     const foundStat = this.savedStats.find((foundStat) => foundStat.stat === stat.stat);
-    if (foundStat) {
-      return stat.amount - foundStat.amount;
+    if (foundStat && foundStat.amount != 0) {
+      const diff = stat.amount / foundStat.amount;
+      return (diff - 1) * 100;
+    } else if (foundStat.amount == 0) {
+      return 100;
     }
     return 0;
   }
@@ -111,27 +113,29 @@ export class AppComponent implements OnInit {
   }
 
   public statDifMNGU() {
-    return this.magicNgu() - this.totalNguSpeed.magic;
+    const diff = this.magicNgu() / this.savedTotalNguSpeed.magic;
+    if (this.savedTotalNguSpeed.magic == 0) {
+      return 100;
+    }
+    return (diff - 1) * 100;
   }
 
 
   public statDifENGU() {
-    return this.energyNgu() - this.totalNguSpeed.energy;
+    const diff = this.energyNgu() / this.savedTotalNguSpeed.energy;
+    if (this.savedTotalNguSpeed.energy == 0) {
+      return 100;
+    }
+    return (diff - 1) * 100;
   }
 
   public energyNgu() {
     let ePower = this.totalStats.find((stat) => stat.stat === Stat.ENERGY_POWER).amount;
-    if (ePower == 0) {
-      ePower = 1;
-    }
     return this.nguSpeed() * ePower;
   }
 
   public magicNgu() {
     let mPower = this.totalStats.find((stat) => stat.stat === Stat.MAGIC_POWER).amount;
-    if (mPower == 0) {
-      mPower = 1;
-    }
     return this.nguSpeed() * mPower;
   }
 
