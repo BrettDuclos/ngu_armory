@@ -44,7 +44,6 @@ export class InventoryService {
     accessory9: this.emptySlot.emptyAccessory,
     accessory10: this.emptySlot.emptyAccessory,
     accessory11: this.emptySlot.emptyAccessory,
-    accessory12: this.emptySlot.emptyAccessory,
   };
 
   private initStats() {
@@ -188,10 +187,8 @@ export class InventoryService {
       return this.eqItems.accessory9 = item;
     } else if (!this.eqItems.accessory10.name) {
       return this.eqItems.accessory10 = item;
-    } else if (!this.eqItems.accessory11.name) {
-      return this.eqItems.accessory11 = item;
     }
-    return this.eqItems.accessory12 = item;
+    return this.eqItems.accessory11 = item;
   }
 
   findEquippedSlot(item: Item) {

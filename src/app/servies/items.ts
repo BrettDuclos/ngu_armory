@@ -22,7 +22,7 @@ export enum Slot {
 
 export enum Stat {
   DAYCARE_SPEED = 'Daycare Speed',
-  YGGDRASIL_YIELD = 'Yggdrassil Yeild',
+  YGGDRASIL_YIELD = 'Yggdrasil Yeild',
   MOVE_COOLDOWN = 'Move Cooldown',
   MAGIC_SPEED = 'Magic Speed',
   ENERGY_SPEED = 'Energy Speed',
@@ -33,14 +33,14 @@ export enum Stat {
   GOLD_DROP = 'Gold Drops',
   POWER = 'Power',
   TOUGHNESS = 'Toughness',
-  ENERGY_POWER = 'Energy power',
-  ENERGY_BARS = 'Energy bars',
-  ENERGY_CAP = 'Energy cap',
-  MAGIC_POWER = 'Magic power',
-  MAGIC_BARS = 'Magic bars',
-  MAGIC_CAP = 'Magic cap',
-  NGU_SPEED = 'NGU speed',
-  WANDOOS_SPEED = 'Wandoos speed',
+  ENERGY_POWER = 'Energy Power',
+  ENERGY_BARS = 'Energy Bars',
+  ENERGY_CAP = 'Energy Cap',
+  MAGIC_POWER = 'Magic Power',
+  MAGIC_BARS = 'Magic Bars',
+  MAGIC_CAP = 'Magic Cap',
+  NGU_SPEED = 'NGU Speed',
+  WANDOOS_SPEED = 'Wandoos Speed',
   ADVANCE_TRAINING = 'Advance Training',
   AUGMENT_SPEED = 'Augment Speed',
   BEARD_SPEED = 'Beard Speed',
@@ -1294,6 +1294,26 @@ export const itemList = [
   {
     setName: SetName.WANDERER, items: [
       {
+        name: 'Wanderer\'s Cane', slot: Slot.WEAPON, stats: [
+          {stat: Stat.POWER, value: 340000},
+          {stat: Stat.TOUGHNESS, value: 1020000},
+
+        ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/6/6e/154_-_Wanderer%27s_Cane.png/revision/latest?cb=20180619092612',
+      },
+      {
+        name: 'The Candy Cane of Destiny', slot: Slot.WEAPON, stats: [
+          {stat: Stat.POWER, value: 340000},
+          {stat: Stat.TOUGHNESS, value: 1020000},
+          {stat: Stat.ENERGY_POWER, value: 2000},
+          {stat: Stat.ENERGY_CAP, value: 200},
+          {stat: Stat.ENERGY_BARS, value: 2000},
+          {stat: Stat.MAGIC_POWER, value: 2000},
+          {stat: Stat.MAGIC_CAP, value: 200},
+          {stat: Stat.MAGIC_BARS, value: 2000},
+
+        ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/f/fd/159_-_The_Candy_Cane_of_Destiny.png/revision/latest?cb=20180619111530',
+      },
+      {
         name: 'Wanderer\'s Hat', slot: Slot.HEAD, stats: [
           {stat: Stat.POWER, value: 2000},
           {stat: Stat.TOUGHNESS, value: 42000},
@@ -2192,9 +2212,23 @@ export const itemList = [
         ],
       },
       {
+        name: 'The Godmother\'s Wand',
+        slot: Slot.ACCESSORY,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/e/e7/K6pqFGu.png/revision/latest?cb=20190401143341',
+        stats: [
+          {stat: Stat.POWER, value: 3000000},
+          {stat: Stat.TOUGHNESS, value: 3000000},
+          {stat: Stat.ENERGY_CAP, value: 4000},
+          {stat: Stat.MAGIC_CAP, value: 4000},
+          {stat: Stat.ENERGY_POWER, value: 40000},
+          {stat: Stat.MAGIC_POWER, value: 40000},
+          {stat: Stat.YGGDRASIL_YIELD, value: 15},
+        ],
+      },
+      {
         name: 'Molotov Cocktail',
         slot: Slot.ACCESSORY,
-        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/71/271_-_Brass_Knuckles.png/revision/latest?cb=20190304210708',
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/3/39/GCG0Yrg.png/revision/latest?cb=20190401141442',
         stats: [
           {stat: Stat.POWER, value: 20000000},
           {stat: Stat.TOUGHNESS, value: 20000000},
@@ -2206,7 +2240,7 @@ export const itemList = [
       {
         name: 'Violin Case',
         slot: Slot.ACCESSORY,
-        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/71/271_-_Brass_Knuckles.png/revision/latest?cb=20190304210708',
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/1/12/B3dszpz.png/revision/latest?cb=20190401141624',
         stats: [
           {stat: Stat.POWER, value: 14000000},
           {stat: Stat.TOUGHNESS, value: 14000000},
@@ -2221,7 +2255,7 @@ export const itemList = [
       {
         name: 'The Godmother\'s Ring',
         slot: Slot.ACCESSORY,
-        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/71/271_-_Brass_Knuckles.png/revision/latest?cb=20190304210708',
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/a/a3/AOpE6So.png/revision/latest?cb=20190401142153',
         stats: [
           {stat: Stat.POWER, value: 30000000},
           {stat: Stat.TOUGHNESS, value: 30000000},
@@ -2232,7 +2266,7 @@ export const itemList = [
       {
         name: 'Left Fairy Wing',
         slot: Slot.ACCESSORY,
-        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/71/271_-_Brass_Knuckles.png/revision/latest?cb=20190304210708',
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/f/fc/Urodqun.png/revision/latest?cb=20190401141854',
         stats: [
           {stat: Stat.POWER, value: 80000000},
           {stat: Stat.TOUGHNESS, value: 80000000},
@@ -2244,7 +2278,7 @@ export const itemList = [
       {
         name: 'Right Fairy Wing',
         slot: Slot.ACCESSORY,
-        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/71/271_-_Brass_Knuckles.png/revision/latest?cb=20190304210708',
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/0/08/TtQweWp.png/revision/latest?cb=20190401141928',
         stats: [
           {stat: Stat.POWER, value: 80000000},
           {stat: Stat.TOUGHNESS, value: 80000000},
