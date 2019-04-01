@@ -132,17 +132,21 @@ export class AppComponent implements OnInit {
   public energyNgu() {
     let ePower = this.totalStats.find((stat) => stat.stat === Stat.ENERGY_POWER).amount;
     let eCap = this.totalStats.find((stat) => stat.stat === Stat.ENERGY_CAP).amount;
-    return this.nguSpeed() * ePower * eCap;
+    return this.nguSpeed() * this.getValue(ePower) * this.getValue(eCap);
   }
 
   public magicNgu() {
     let mPower = this.totalStats.find((stat) => stat.stat === Stat.MAGIC_POWER).amount;
     let mCap = this.totalStats.find((stat) => stat.stat === Stat.MAGIC_CAP).amount;
-    return this.nguSpeed() * mPower * mCap;
+    return this.nguSpeed() * this.getValue(mPower) * this.getValue(mCap);
   }
 
   private nguSpeed() {
     const stat = this.totalStats.find((stat) => stat.stat === Stat.NGU_SPEED);
-    return stat.amount === 0 ? 1 : stat.amount / 100;
+    return stat.amount === 0 ? 1 : 1 + stat.amount / 100;
+  }
+
+  private getValue(value: number) {
+    return value === 0 ? 1 : value;
   }
 }
