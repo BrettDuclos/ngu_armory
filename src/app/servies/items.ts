@@ -1912,6 +1912,19 @@ export const itemList = [
         ],
       },
       {
+        name: 'A Bag of Trash',
+        slot: Slot.ACCESSORY,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/2/25/248.png/revision/latest/scale-to-width-down/48?cb=20190123172736',
+        stats: [
+          {stat: Stat.POWER, value: 1000000},
+          {stat: Stat.TOUGHNESS, value: 3000000},
+          {stat: Stat.GOLD_DROP, value: 10000},
+          {stat: Stat.ENERGY_CAP, value: 2000},
+          {stat: Stat.MAGIC_CAP, value: 2000},
+          {stat: Stat.DAYCARE_SPEED, value: 20},
+        ],
+      },
+      {
         name: 'Heart Shaped Panties',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/d/dd/249.png/revision/latest?cb=20190124103356',
