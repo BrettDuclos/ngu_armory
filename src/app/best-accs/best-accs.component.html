@@ -1,0 +1,69 @@
+<div class='content' style='margin-top: 10px;'>
+  <div *ngFor='let item of equippedAccs; let i = index' class='row'>
+    <div class='col-2'>
+      <img
+        [matTooltip]='inventoryTooltip(item)'
+        (click)='unequipAcc(item)'
+        [src]='item.img' [alt]='inventoryTooltip(item)'>
+    </div>
+    <div class='col-4'>
+      <form class="example-form">
+        <mat-form-field>
+          <input matInput placeholder="Item level" [value]='item.itemLevel.toString()'
+                 (change)='onChangeInputValue($event, i)'>
+        </mat-form-field>
+      </form>
+    </div>
+  </div>
+
+  <ng-container *ngIf='equippedAccs.length != 0' style='text-align: center;: center'>
+    <mat-form-field>
+      <input matInput placeholder="Accessory slots" #accSlots [value]='defaultAccsSlots'>
+    </mat-form-field>
+    <button class='btn btn-success' (click)='calculate(accSlots.value)'>Calculate</button>
+
+  </ng-container>
+  <ng-container *ngIf='bestCombinedAccs.length > 0'>
+    <p>
+      Top 3 Combined NGU speed combination:
+    </p>
+
+    <div *ngFor='let acc of bestCombinedAccs| slice:0:3'>
+      <img *ngFor='let item of acc.items'
+           [matTooltip]='inventoryTooltip(item)'
+           [src]='item.img'>
+      {{acc.value | number: '0.0-0'}}
+    </div>
+  </ng-container>
+  <ng-container *ngIf='bestENGUAccs.length > 0'>
+    <p>
+      Top 3 Energy NGU speed combination:
+    </p>
+
+    <div *ngFor='let acc of bestENGUAccs| slice:0:3'>
+      <img *ngFor='let item of acc.items'
+           [matTooltip]='inventoryTooltip(item)'
+           [src]='item.img'>
+      {{acc.value | number: '0.0-0'}}
+    </div>
+  </ng-container>
+  <ng-container *ngIf='bestMNGUAccs.length > 0'>
+    <p>
+      Top 3 Magic NGU speed combination:
+    </p>
+    <div *ngFor='let acc of bestMNGUAccs| slice:0:3'>
+      <img *ngFor='let item of acc.items '
+           [matTooltip]='inventoryTooltip(item)'
+           [src]='item.img'>
+      {{acc.value | number: '0.0-0' }}
+    </div>
+  </ng-container>
+</div>
+<div  class='content' style='margin-top: 10px;'>
+  <img *ngFor='let item of allItems'
+       [class.clicked_item]='item.isEquippedInAccs'
+       [matTooltip]='inventoryTooltip(item)'
+       (click)='equipAcc(item)'
+       [src]='item.img'>
+
+</div>

@@ -3,3 +3,35 @@
 mat-tooltip-component > .mat-tooltip {
   white-space: pre;
 }
+
+.inventory_cell {
+  min-width: 50px;
+  min-height: 50px;
+  margin-bottom: 20px;
+  margin-right: 5px;
+}
+
+
+.main_content {
+  height: 1000px;
+  position: fixed;
+}
+
+.secondary_content {
+  height: 90%;
+  position: fixed;
+  left: 45%;
+}
+
+.content {
+  width: 45%;
+  float: left;
+  margin-left: 10px;
+  overflow-y: scroll;
+
+}
+
+
+.clicked_item {
+  opacity: 0.2;
+}

@@ -4,6 +4,9 @@ export interface Item {
   slot: Slot;
   setName?: SetName;
   img?: string;
+  itemLevel?: number;
+  isEquippedInArmory?: boolean;
+  isEquippedInAccs?: boolean;
 }
 
 export interface ItemStat {
@@ -77,12 +80,12 @@ export enum SetName {
   PINK = 'Pretty Pink Princess Set',
   NERD = 'Greasy Nerd Set',
   META = 'Meta Set',
-  PARTY = "Party Set",
-  MOBSTER = "Mobster Set"
+  PARTY = 'Party Set',
+  MOBSTER = 'Mobster Set'
 }
 
 
-export const itemList = [
+export const itemList: {setName: SetName, items: Item[]}[] = [
 
   {
     setName: SetName.TWO_D,
@@ -94,6 +97,7 @@ export const itemList = [
           {stat: Stat.ENERGY_BARS, value: 100},
           {stat: Stat.ENERGY_POWER, value: 90},
         ],
+        itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/3/30/99_-_A_Triangle.png',
       },
       {
@@ -104,6 +108,7 @@ export const itemList = [
           {stat: Stat.ENERGY_POWER, value: 190},
           {stat: Stat.WANDOOS_SPEED, value: 20},
         ],
+        itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/8/8a/95_-_Circle_Helmet.png',
       },
       {
@@ -113,7 +118,7 @@ export const itemList = [
           {stat: Stat.ENERGY_BARS, value: 100},
           {stat: Stat.ENERGY_POWER, value: 100},
           {stat: Stat.MAGIC_POWER, value: 80},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/2/21/96_-_Square_Chestpiece.png',
       },
       {
@@ -122,7 +127,7 @@ export const itemList = [
           {stat: Stat.TOUGHNESS, value: 1520},
           {stat: Stat.ENERGY_CAP, value: 14},
           {stat: Stat.ENERGY_POWER, value: 100},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/97/97_-_Rectangle_Pants.png',
       },
       {
@@ -132,21 +137,21 @@ export const itemList = [
           {stat: Stat.ENERGY_BARS, value: 140},
           {stat: Stat.ENERGY_CAP, value: 10},
           {stat: Stat.ENERGY_POWER, value: 100},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/6/62/98_-_Polygon_Boots.png',
       },
       {
         name: 'THE CUBE', slot: Slot.ACCESSORY, stats: [
           {stat: Stat.POWER, value: 1300},
           {stat: Stat.TOUGHNESS, value: 1300},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/91/100_-_THE_CUBE.png',
       },
       {
         name: 'King Circle\'s Amulet of Helping Random Stuff', slot: Slot.ACCESSORY, stats: [
           {stat: Stat.ADVANCE_TRAINING, value: 80},
           {stat: Stat.WANDOOS_SPEED, value: 60},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/e/ed/101_-_King_Circle%27s_Amulet_of_Helping_Random_Stuff.png',
       },
     ],
@@ -166,7 +171,7 @@ export const itemList = [
           {stat: Stat.MAGIC_CAP, value: 120},
           {stat: Stat.ENERGY_POWER, value: 1200},
           {stat: Stat.MAGIC_POWER, value: 1200},
-        ],
+        ], itemLevel: 100,
       },
       {
         name: 'Badly Drawn Smiley Face',
@@ -178,7 +183,7 @@ export const itemList = [
           {stat: Stat.ENERGY_BARS, value: 900},
           {stat: Stat.MAGIC_BARS, value: 900},
           {stat: Stat.GOLD_DROP, value: 1200},
-        ],
+        ], itemLevel: 100,
       },
       {
         name: 'Badly Drawn Chest',
@@ -190,7 +195,7 @@ export const itemList = [
           {stat: Stat.MAGIC_BARS, value: 900},
           {stat: Stat.ENERGY_POWER, value: 2800},
           {stat: Stat.MAGIC_CAP, value: 270},
-        ],
+        ], itemLevel: 100,
       },
       {
         name: 'Badly Drawn Pants',
@@ -202,7 +207,7 @@ export const itemList = [
           {stat: Stat.ENERGY_POWER, value: 800},
           {stat: Stat.MAGIC_BARS, value: 2800},
           {stat: Stat.MAGIC_POWER, value: 800},
-        ],
+        ], itemLevel: 100,
       },
       {
         name: 'Badly Drawn Foot',
@@ -214,7 +219,7 @@ export const itemList = [
           {stat: Stat.ENERGY_CAP, value: 80},
           {stat: Stat.MAGIC_CAP, value: 80},
           {stat: Stat.MAGIC_POWER, value: 2400},
-        ],
+        ], itemLevel: 100,
       },
 
     ],
@@ -229,7 +234,7 @@ export const itemList = [
           {stat: Stat.BEARD_SPEED, value: 20},
           {stat: Stat.ENERGY_BARS, value: 440},
           {stat: Stat.MAGIC_BARS, value: 440},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/92/147_-_Bearded_Axe.png/',
       },
 
@@ -240,7 +245,7 @@ export const itemList = [
           {stat: Stat.ENERGY_POWER, value: 360},
           {stat: Stat.MAGIC_BARS, value: 480},
           {stat: Stat.MAGIC_CAP, value: 96},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/c/c6/143_-_Groucho_Marx_Disguise.png/',
       },
       {
@@ -249,7 +254,7 @@ export const itemList = [
           {stat: Stat.TOUGHNESS, value: 22000},
           {stat: Stat.ENERGY_CAP, value: 120},
           {stat: Stat.MAGIC_CAP, value: 100},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/77/144_-_Gossamer_Chest.png/',
       },
       {
@@ -259,7 +264,7 @@ export const itemList = [
           {stat: Stat.MAGIC_BARS, value: 460},
           {stat: Stat.MAGIC_CAP, value: 86},
           {stat: Stat.MAGIC_POWER, value: 560},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/a/ac/145_-_Braided_Beard_Legs.png/',
       },
       {
@@ -269,7 +274,7 @@ export const itemList = [
           {stat: Stat.ENERGY_BARS, value: 660},
           {stat: Stat.ENERGY_POWER, value: 440},
           {stat: Stat.ENERGY_CAP, value: 40},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/c/cc/146_-_Fuzzy_Orange_Cheeto_Slippers%21.png/',
       },
       {
@@ -282,7 +287,7 @@ export const itemList = [
           {stat: Stat.BEARD_SPEED, value: 20},
           {stat: Stat.ENERGY_POWER, value: 900},
           {stat: Stat.MAGIC_POWER, value: 700},
-        ],
+        ], itemLevel: 100,
       },
     ],
   },
@@ -295,7 +300,7 @@ export const itemList = [
           {stat: Stat.TOUGHNESS, value: 840},
           {stat: Stat.GOLD_DROP, value: 200},
           {stat: Stat.NGU_SPEED, value: 80},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/5/5c/196_-_My_Blue_Heart.png/',
       },
       {
@@ -305,7 +310,7 @@ export const itemList = [
           {stat: Stat.MAGIC_POWER, value: 100},
           {stat: Stat.ENERGY_POWER, value: 100},
           {stat: Stat.SEED_DROP, value: 70},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/b/b4/162_-_My_Brown_Heart.png/',
       },
       {
@@ -315,7 +320,7 @@ export const itemList = [
           {stat: Stat.BEARD_SPEED, value: 60},
           {stat: Stat.DROP_CHANCE, value: 100},
           {stat: Stat.RESPAWN, value: 8},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/1/14/171_-_My_Green_Heart.png/',
       },
       {
@@ -324,7 +329,7 @@ export const itemList = [
           {stat: Stat.TOUGHNESS, value: 200},
           {stat: Stat.DROP_CHANCE, value: 60},
           {stat: Stat.EXPERIENCE, value: 10},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/d/d8/119_-_My_Red_Heart.png/',
       },
       {
@@ -333,7 +338,7 @@ export const itemList = [
           {stat: Stat.TOUGHNESS, value: 200},
           {stat: Stat.GOLD_DROP, value: 600},
           {stat: Stat.AP, value: 20},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/8/81/129_-_My_Yellow_Heart.png/',
       },
       {
@@ -342,7 +347,7 @@ export const itemList = [
           {stat: Stat.TOUGHNESS, value: 200},
           {stat: Stat.GOLD_DROP, value: 600},
           {stat: Stat.QUEST_DROP, value: 80},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/0/00/293_-_My_Orange_Heart.png',
       },
 
@@ -354,28 +359,28 @@ export const itemList = [
         name: 'Mole Hammer', slot: Slot.WEAPON, stats: [
           {stat: Stat.POWER, value: 400},
           {stat: Stat.ENERGY_BARS, value: 30},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/e/eb/58_-_Mole_Hammer.png/revision/latest?cb=20180330170742',
       },
       {
         name: 'Blue Cheese Helmet', slot: Slot.HEAD, stats: [
           {stat: Stat.TOUGHNESS, value: 100},
           {stat: Stat.MAGIC_POWER, value: 14},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/3/3d/54_-_Blue_Cheese_Helmet.png/revision/latest?cb=20180330170526',
       },
       {
         name: 'Gouda Chestplate', slot: Slot.CHEST, stats: [
           {stat: Stat.TOUGHNESS, value: 100},
           {stat: Stat.MAGIC_POWER, value: 26},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/b/ba/55_-_Gouda_Chestplate.png/revision/latest?cb=20180330170605',
       },
       {
         name: 'Swiss Leggings', slot: Slot.PANTS, stats: [
           {stat: Stat.TOUGHNESS, value: 100},
           {stat: Stat.MAGIC_SPEED, value: 20},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/4/47/56_-_Swiss_Leggings.png/revision/latest?cb=20180330170641',
       },
       {
@@ -383,7 +388,7 @@ export const itemList = [
           {stat: Stat.TOUGHNESS, value: 100},
           {stat: Stat.MAGIC_POWER, value: 20},
           {stat: Stat.MAGIC_SPEED, value: 20},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/a/a3/57_-_Limburger_Boots.png/revision/latest?cb=20180330170712',
       },
       {
@@ -392,7 +397,7 @@ export const itemList = [
           {stat: Stat.TOUGHNESS, value: 8},
           {stat: Stat.MAGIC_POWER, value: 50},
           {stat: Stat.MAGIC_SPEED, value: 50},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/a/a1/59_-_Havarti_Ring.png/revision/latest?cb=20180330170813',
       },
       {
@@ -401,7 +406,7 @@ export const itemList = [
           {stat: Stat.TOUGHNESS, value: 2},
           {stat: Stat.ENERGY_POWER, value: 60},
           {stat: Stat.ENERGY_SPEED, value: 120},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/a/a2/60_-_Cheddar_Amulet.png/revision/latest?cb=20180330170844',
       },
       {
@@ -409,7 +414,7 @@ export const itemList = [
           {stat: Stat.POWER, value: 60},
           {stat: Stat.TOUGHNESS, value: 60},
           {stat: Stat.GOLD_DROP, value: 20},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/a/ac/61_-_Combat_Cheese.png/revision/latest?cb=20180330170916',
       },
 
@@ -427,7 +432,7 @@ export const itemList = [
           {stat: Stat.ENERGY_POWER, value: 6000},
           {stat: Stat.MAGIC_BARS, value: 3600},
           {stat: Stat.MAGIC_CAP, value: 580},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/8/81/225_-_Chocolate_Crowbar.png/revision/latest?cb=20181205182402',
       },
       {
@@ -440,7 +445,7 @@ export const itemList = [
           {stat: Stat.MAGIC_BARS, value: 4400},
           {stat: Stat.MAGIC_CAP, value: 500},
           {stat: Stat.MAGIC_POWER, value: 6000},
-        ],
+        ], itemLevel: 100,
       },
       {
         name: 'Energy Bar Bar',
@@ -452,7 +457,7 @@ export const itemList = [
           {stat: Stat.ENERGY_BARS, value: 4400},
           {stat: Stat.ENERGY_CAP, value: 500},
           {stat: Stat.ENERGY_POWER, value: 6000},
-        ],
+        ], itemLevel: 100,
       },
       {
         name: 'Chocolate Helmet', slot: Slot.HEAD, stats: [
@@ -461,7 +466,8 @@ export const itemList = [
           {stat: Stat.ENERGY_POWER, value: 5200},
           {stat: Stat.MAGIC_BARS, value: 2800},
           {stat: Stat.MAGIC_CAP, value: 380},
-        ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/e/e3/221_-_Chocolate_Helmet.png/revision/latest?cb=20181111154851',
+        ], itemLevel: 100,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/e/e3/221_-_Chocolate_Helmet.png/revision/latest?cb=20181111154851',
       },
       {
         name: 'Chocolate Chest', slot: Slot.CHEST, stats: [
@@ -472,7 +478,8 @@ export const itemList = [
           {stat: Stat.ENERGY_POWER, value: 5800},
           {stat: Stat.MAGIC_POWER, value: 5800},
           {stat: Stat.MAGIC_BARS, value: 5000},
-        ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/8/89/222_-_Chocolate_Chest.png/revision/latest?cb=20181111153348',
+        ], itemLevel: 100,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/8/89/222_-_Chocolate_Chest.png/revision/latest?cb=20181111153348',
       },
       {
         name: 'Chocolate Pants', slot: Slot.PANTS, stats: [
@@ -482,7 +489,8 @@ export const itemList = [
           {stat: Stat.ENERGY_CAP, value: 460},
           {stat: Stat.ENERGY_POWER, value: 5600},
           {stat: Stat.MAGIC_POWER, value: 5600},
-        ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/b/b9/223_-_Chocolate_Pants.png/revision/latest?cb=20181111152501',
+        ], itemLevel: 100,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/b/b9/223_-_Chocolate_Pants.png/revision/latest?cb=20181111152501',
       },
       {
         name: 'Chocolate Boots', slot: Slot.BOOTS, stats: [
@@ -491,7 +499,8 @@ export const itemList = [
           {stat: Stat.ENERGY_BARS, value: 6800},
           {stat: Stat.ENERGY_CAP, value: 680},
           {stat: Stat.ENERGY_POWER, value: 6800},
-        ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/d/d7/224_-_Chocolate_Boots.png/revision/latest?cb=20181111153509',
+        ], itemLevel: 100,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/d/d7/224_-_Chocolate_Boots.png/revision/latest?cb=20181111153509',
       },
     ],
   },
@@ -505,7 +514,7 @@ export const itemList = [
           {stat: Stat.TOUGHNESS, value: 160},
           {stat: Stat.MAGIC_BARS, value: 130},
           {stat: Stat.MAGIC_POWER, value: 100},
-        ],
+        ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/5/53/89_-_A_Comically_Oversized_Minute-Hand.png/revision/latest?cb=20180330175633',
       },
       {
@@ -514,7 +523,8 @@ export const itemList = [
           {stat: Stat.TOUGHNESS, value: 860},
           {stat: Stat.MAGIC_CAP, value: 4},
           {stat: Stat.MAGIC_POWER, value: 60},
-        ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/96/85_-_Clockwork_Hat.png/revision/latest?cb=20180330175115',
+        ], itemLevel: 100,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/96/85_-_Clockwork_Hat.png/revision/latest?cb=20180330175115',
       },
       {
         name: 'Clockwork Chest', slot: Slot.CHEST, stats: [
@@ -530,7 +540,8 @@ export const itemList = [
           {stat: Stat.TOUGHNESS, value: 1000},
           {stat: Stat.MAGIC_CAP, value: 6},
           {stat: Stat.MAGIC_POWER, value: 60},
-        ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/d/d4/87_-_Clockwork_Pants.png/revision/latest?cb=20180330175444',
+        ], itemLevel: 100,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/d/d4/87_-_Clockwork_Pants.png/revision/latest?cb=20180330175444',
       },
       {
         name: 'Clockwork Boots', slot: Slot.BOOTS, stats: [
@@ -538,18 +549,21 @@ export const itemList = [
           {stat: Stat.TOUGHNESS, value: 1030},
           {stat: Stat.MAGIC_CAP, value: 6},
           {stat: Stat.MAGIC_POWER, value: 60},
-        ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/4/41/88_-_Clockwork_Boots.png/revision/latest?cb=20180330175513',
+        ], itemLevel: 100,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/4/41/88_-_Clockwork_Boots.png/revision/latest?cb=20180330175513',
       },
       {
         name: 'Alarm Clock', slot: Slot.ACCESSORY, stats: [
           {stat: Stat.POWER, value: 900},
           {stat: Stat.TOUGHNESS, value: 900},
-        ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/0/08/90_-_Alarm_Clock.png/revision/latest?cb=20180330175706',
+        ], itemLevel: 100,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/0/08/90_-_Alarm_Clock.png/revision/latest?cb=20180330175706',
       },
       {
         name: 'The Sands of Time', slot: Slot.ACCESSORY, stats: [
           {stat: Stat.MOVE_COOLDOWN, value: 20},
-        ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/1/1f/91_-_The_Sands_of_Time.png/revision/latest?cb=20180330175744',
+        ], itemLevel: 100,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/1/1f/91_-_The_Sands_of_Time.png/revision/latest?cb=20180330175744',
       },
     ],
   },
@@ -559,9 +573,11 @@ export const itemList = [
         name: 'Kokiri Blade', slot: Slot.WEAPON, stats: [
           {stat: Stat.POWER, value: 160},
           {stat: Stat.ENERGY_POWER, value: 20},
-        ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/72/51_-_Kokiri_Blade.png/revision/latest?cb=20180330170353',
+        ], itemLevel: 100,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/72/51_-_Kokiri_Blade.png/revision/latest?cb=20180330170353',
       },
       {
+        itemLevel: 100,
         name: 'Forest Helmet', slot: Slot.HEAD, stats: [
           {stat: Stat.TOUGHNESS, value: 20},
           {stat: Stat.ENERGY_POWER, value: 20},
@@ -569,6 +585,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/f/f3/47_-_Forest_Helmet.png/revision/latest?cb=20180330170139',
       },
       {
+        itemLevel: 100,
         name: 'Forest Chestplate', slot: Slot.CHEST, stats: [
           {stat: Stat.TOUGHNESS, value: 40},
           {stat: Stat.ENERGY_POWER, value: 24},
@@ -576,18 +593,21 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/1/1b/48_-_Forest_Chestplate.png/revision/latest?cb=20180330170217',
       },
       {
+        itemLevel: 100,
         name: 'Forest Leggings', slot: Slot.PANTS, stats: [
           {stat: Stat.TOUGHNESS, value: 40},
           {stat: Stat.ENERGY_SPEED, value: 16},
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/79/49_-_Forest_Leggings.png/revision/latest?cb=20180330170250',
       },
       {
+        itemLevel: 100,
         name: 'Forest Boots', slot: Slot.BOOTS, stats: [
           {stat: Stat.TOUGHNESS, value: 40},
           {stat: Stat.ENERGY_POWER, value: 10},
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/7e/50_-_Forest_Boots.png/revision/latest?cb=20180330170315',
       },
       {
+        itemLevel: 100,
         name: 'Mossy Ring', slot: Slot.ACCESSORY, stats: [
           {stat: Stat.POWER, value: 16},
           {stat: Stat.TOUGHNESS, value: 16},
@@ -599,6 +619,7 @@ export const itemList = [
   {
     setName: SetName.GAUDY, items: [
       {
+        itemLevel: 100,
         name: 'Paper Fan', slot: Slot.WEAPON, stats: [
           {stat: Stat.POWER, value: 38000},
           {stat: Stat.MAGIC_BARS, value: 200},
@@ -606,6 +627,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/95/126_-_Paper_Fan.png/revision/latest?cb=20180420183017',
       },
       {
+        itemLevel: 100,
         name: 'Gaudy Hat', slot: Slot.HEAD, stats: [
           {stat: Stat.POWER, value: 560},
           {stat: Stat.TOUGHNESS, value: 4800},
@@ -615,6 +637,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/a/a3/122_-_Gaudy_Hat.png/revision/latest?cb=20180420182814',
       },
       {
+        itemLevel: 100,
         name: 'A Beanie',
         slot: Slot.HEAD,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/b/b7/127_-_A_Beanie.png/revision/latest?cb=20180420183047',
@@ -626,6 +649,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Gaudy Shirt', slot: Slot.CHEST, stats: [
           {stat: Stat.POWER, value: 500},
           {stat: Stat.TOUGHNESS, value: 4800},
@@ -634,6 +658,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/6/6b/123_-_Gaudy_Shirt.png/revision/latest?cb=20180420182843',
       },
       {
+        itemLevel: 100,
         name: 'Gaudy Pants', slot: Slot.PANTS, stats: [
           {stat: Stat.POWER, value: 600},
           {stat: Stat.TOUGHNESS, value: 5000},
@@ -642,6 +667,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/73/124_-_Gaudy_Pants.png/revision/latest?cb=20180420182911',
       },
       {
+        itemLevel: 100,
         name: 'Gaudy Boots', slot: Slot.BOOTS, stats: [
           {stat: Stat.POWER, value: 400},
           {stat: Stat.TOUGHNESS, value: 4600},
@@ -654,6 +680,7 @@ export const itemList = [
   {
     setName: SetName.GRB, items: [
       {
+        itemLevel: 100,
         name: 'Bloody Cleaver', slot: Slot.WEAPON, stats: [
           {stat: Stat.POWER, value: 2000},
           {stat: Stat.TOUGHNESS, value: 160},
@@ -662,6 +689,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/8/8a/82_-_Bloody_Cleaver.png/revision/latest?cb=20180330174836',
       },
       {
+        itemLevel: 100,
         name: 'Chef\'s Hat', slot: Slot.HEAD, stats: [
           {stat: Stat.POWER, value: 500},
           {stat: Stat.TOUGHNESS, value: 500},
@@ -669,6 +697,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/d/db/78_-_Chef%27s_Hat.png/revision/latest?cb=20180330173229',
       },
       {
+        itemLevel: 100,
         name: 'Chef\'s Apron', slot: Slot.CHEST, stats: [
           {stat: Stat.POWER, value: 40},
           {stat: Stat.TOUGHNESS, value: 500},
@@ -676,6 +705,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/0/0f/79_-_Chef%27s_Apron.png/revision/latest?cb=20180330173300',
       },
       {
+        itemLevel: 100,
         name: 'Regular Pants', slot: Slot.PANTS, stats: [
           {stat: Stat.POWER, value: 40},
           {stat: Stat.TOUGHNESS, value: 500},
@@ -683,6 +713,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/8/86/80_-_Regular_Pants.png/revision/latest?cb=20180330173331',
       },
       {
+        itemLevel: 100,
         name: 'Non Slip Shoes', slot: Slot.BOOTS, stats: [
           {stat: Stat.POWER, value: 40},
           {stat: Stat.TOUGHNESS, value: 500},
@@ -690,6 +721,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/5/5d/81_-_Non_Slip_Shoes.png/revision/latest?cb=20180330173412',
       },
       {
+        itemLevel: 100,
         name: 'Suspicious Sausage Necklace',
         slot: Slot.ACCESSORY,
         stats: [
@@ -699,6 +731,7 @@ export const itemList = [
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/a/a8/83_-_Suspicious_Sausage_Necklace.png/revision/latest?cb=20180330174914',
       },
       {
+        itemLevel: 100,
         name: 'Raw Slab of Meat', slot: Slot.ACCESSORY, stats: [
           {stat: Stat.ENERGY_CAP, value: 10},
           {stat: Stat.ENERGY_POWER, value: 140},
@@ -710,6 +743,7 @@ export const itemList = [
   {
     setName: SetName.HSB, items: [
       {
+        itemLevel: 100,
         name: 'Magitech Blade', slot: Slot.WEAPON, stats: [
           {stat: Stat.POWER, value: 1000},
           {stat: Stat.ENERGY_CAP, value: 12},
@@ -718,6 +752,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/d/d1/72_-_Magitech_Blade.png/revision/latest?cb=20180330172657',
       },
       {
+        itemLevel: 100,
         name: 'Magitech Helmet', slot: Slot.HEAD, stats: [
           {stat: Stat.TOUGHNESS, value: 250},
           {stat: Stat.ENERGY_BARS, value: 50},
@@ -725,6 +760,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/9e/68_-_Magitech_Helmet.png/revision/latest?cb=20180330171306',
       },
       {
+        itemLevel: 100,
         name: 'Magitech Chestplate',
         slot: Slot.CHEST,
         stats: [
@@ -735,6 +771,7 @@ export const itemList = [
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/7e/69_-_Magitech_Chestplate.png/revision/latest?cb=20180330172412',
       },
       {
+        itemLevel: 100,
         name: 'Magitech Leggings', slot: Slot.PANTS, stats: [
           {stat: Stat.TOUGHNESS, value: 250},
           {stat: Stat.MAGIC_BARS, value: 40},
@@ -742,6 +779,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/d/d2/70_-_Magitech_Leggings.png/revision/latest?cb=20180330172456',
       },
       {
+        itemLevel: 100,
         name: 'Magitech Boots', slot: Slot.BOOTS, stats: [
           {stat: Stat.TOUGHNESS, value: 250},
           {stat: Stat.ENERGY_POWER, value: 50},
@@ -749,6 +787,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/6/6f/71_-_Magitech_Boots.png/revision/latest?cb=20180330172551',
       },
       {
+        itemLevel: 100,
         name: 'Magitech Ring', slot: Slot.ACCESSORY, stats: [
           {stat: Stat.POWER, value: 90},
           {stat: Stat.TOUGHNESS, value: 90},
@@ -756,6 +795,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/b/b8/73_-_Magitech_Ring.png/revision/latest?cb=20180330172727',
       },
       {
+        itemLevel: 100,
         name: 'Magitech Amulet', slot: Slot.ACCESSORY, stats: [
           {stat: Stat.ENERGY_CAP, value: 1.8},
           {stat: Stat.ENERGY_POWER, value: 60},
@@ -768,6 +808,7 @@ export const itemList = [
   {
     setName: SetName.JAKE, items: [
       {
+        itemLevel: 100,
         name: 'The Pen-Is', slot: Slot.WEAPON, stats: [
           {stat: Stat.POWER, value: 23000},
           {stat: Stat.MAGIC_CAP, value: 47.12},
@@ -775,6 +816,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/d/dd/115_-_The_Pen-Is.png/revision/latest?cb=20180420182614',
       },
       {
+        itemLevel: 100,
         name: 'Office Hat', slot: Slot.HEAD, stats: [
           {stat: Stat.POWER, value: 160},
           {stat: Stat.TOUGHNESS, value: 2600},
@@ -783,6 +825,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/a/ac/111_-_Office_Hat.png/revision/latest?cb=20180420182341',
       },
       {
+        itemLevel: 100,
         name: 'Office Shirt', slot: Slot.CHEST, stats: [
           {stat: Stat.POWER, value: 158.6},
           {stat: Stat.TOUGHNESS, value: 2499},
@@ -791,6 +834,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/6/61/112_-_Office_Shirt.png/revision/latest?cb=20180420182433',
       },
       {
+        itemLevel: 100,
         name: 'Office Pants', slot: Slot.PANTS, stats: [
           {stat: Stat.POWER, value: 160},
           {stat: Stat.TOUGHNESS, value: 2798},
@@ -799,6 +843,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/e/e4/113_-_Office_Pants.png/revision/latest?cb=20180514101206',
       },
       {
+        itemLevel: 100,
         name: 'Office Shoes', slot: Slot.BOOTS, stats: [
           {stat: Stat.POWER, value: 160},
           {stat: Stat.TOUGHNESS, value: 2600},
@@ -806,6 +851,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/1/1e/114_-_Office_Shoes.png/revision/latest?cb=20180420182540',
       },
       {
+        itemLevel: 100,
         name: 'Stapler',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/a/a9/118_-_Stapler.png/revision/latest?cb=20180420182738',
@@ -816,6 +862,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'A Regular Tie', slot: Slot.ACCESSORY, stats: [
           {stat: Stat.TOUGHNESS, value: 163},
           {stat: Stat.GOLD_DROP, value: 400},
@@ -824,6 +871,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/f/f5/116_-_A_Regular_Tie.png/revision/latest?cb=20180420182645',
       },
       {
+        itemLevel: 100,
         name: 'Generic Paperweight',
         slot: Slot.ACCESSORY,
         stats: [
@@ -838,6 +886,7 @@ export const itemList = [
   {
     setName: SetName.MEGA, items: [
       {
+        itemLevel: 100,
         name: 'Beam Laser Sword', slot: Slot.WEAPON, stats: [
           {stat: Stat.POWER, value: 86000},
           {stat: Stat.ENERGY_POWER, value: 280},
@@ -846,6 +895,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/f/fb/134_-_Beam_Laser_Sword.png/revision/latest?cb=20180420183306',
       },
       {
+        itemLevel: 100,
         name: 'Mega Helmet', slot: Slot.HEAD, stats: [
           {stat: Stat.POWER, value: 600},
           {stat: Stat.TOUGHNESS, value: 11000},
@@ -854,6 +904,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/e/e1/130_-_Mega_Helmet.png/revision/latest?cb=20180420183116',
       },
       {
+        itemLevel: 100,
         name: 'Mega Chest', slot: Slot.CHEST, stats: [
           {stat: Stat.POWER, value: 600},
           {stat: Stat.TOUGHNESS, value: 11200},
@@ -862,6 +913,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/90/131_-_Mega_Chest.png/revision/latest?cb=20180420183142',
       },
       {
+        itemLevel: 100,
         name: 'Mega Blue Jeans', slot: Slot.PANTS, stats: [
           {stat: Stat.POWER, value: 600},
           {stat: Stat.TOUGHNESS, value: 11200},
@@ -870,9 +922,10 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/d/da/132_-_Mega_Blue_Jeans.png/revision/latest?cb=20180420183213',
       },
       {
+        itemLevel: 100,
         name: 'Mega Boots', slot: Slot.BOOTS, stats: [
-          {stat: Stat.POWER, value: 0},
-          {stat: Stat.TOUGHNESS, value: 0},
+          {stat: Stat.POWER, value: 600},
+          {stat: Stat.TOUGHNESS, value: 10800},
           {stat: Stat.MAGIC_BARS, value: 290},
           {stat: Stat.MAGIC_POWER, value: 280},
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/0/07/133_-_Mega_Boots.png/revision/latest?cb=20180420183238',
@@ -882,31 +935,37 @@ export const itemList = [
   {
     setName: SetName.SEWERS, items: [
       {
+        itemLevel: 100,
         name: 'Rusty Sword', slot: Slot.WEAPON, stats: [
           {stat: Stat.POWER, value: 40},
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/5/55/44_-_Rusty_Sword.png/revision/latest?cb=20180330165424',
       },
       {
+        itemLevel: 100,
         name: 'Crappy Helmet', slot: Slot.HEAD, stats: [
           {stat: Stat.TOUGHNESS, value: 10},
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/2/28/40_-_Crappy_Helmet.png/revision/latest?cb=20180330165208',
       },
       {
+        itemLevel: 100,
         name: 'Crappy Chestplate', slot: Slot.CHEST, stats: [
           {stat: Stat.TOUGHNESS, value: 10},
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/9e/41_-_Crappy_Chestplate.png/revision/latest?cb=20180330165241',
       },
       {
+        itemLevel: 100,
         name: 'Crappy Leggings', slot: Slot.PANTS, stats: [
           {stat: Stat.TOUGHNESS, value: 10},
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/2/23/42_-_Crappy_Leggings.png/revision/latest?cb=20180330165315',
       },
       {
+        itemLevel: 100,
         name: 'Crappy Boots', slot: Slot.BOOTS, stats: [
           {stat: Stat.TOUGHNESS, value: 10},
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/0/05/43_-_Crappy_Boots.png/revision/latest?cb=20180330165354',
       },
       {
+        itemLevel: 100,
         name: 'Gross Ring', slot: Slot.ACCESSORY, stats: [
           {stat: Stat.POWER, value: 2},
           {stat: Stat.TOUGHNESS, value: 2},
@@ -914,6 +973,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/5/5f/45_-_Gross_Ring.png/revision/latest?cb=20180330165521',
       },
       {
+        itemLevel: 100,
         name: 'Cracked Amulet', slot: Slot.ACCESSORY, stats: [
           {stat: Stat.POWER, value: 10},
           {stat: Stat.TOUGHNESS, value: 10},
@@ -925,6 +985,7 @@ export const itemList = [
   {
     setName: SetName.SLIMY, items: [
       {
+        itemLevel: 100,
         name: 'The Fists of Flubber',
         slot: Slot.WEAPON,
         stats: [
@@ -937,6 +998,7 @@ export const itemList = [
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/5/5c/188_-_The_Fists_of_Flubber.png/revision/latest?cb=20180902075731',
       },
       {
+        itemLevel: 100,
         name: 'A Bald Egg',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/0/04/189_-_A_Bald_Egg.png/revision/latest?cb=20180902075731',
@@ -949,6 +1011,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'A Giant Apple',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/4/4b/193_-_A_Giant_Apple.png/revision/latest?cb=20180903174820',
@@ -960,6 +1023,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'A Power Pill',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/3/3d/194_-_A_Power_Pill.png/revision/latest?cb=20180902075732',
@@ -975,6 +1039,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'A Priceless Van-Gogh Painting',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/95/192_-_A_Priceless_Van-Gogh_Painting.png/revision/latest?cb=20180907141342',
@@ -987,6 +1052,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'A Shrunken Voodoo Doll',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/2/20/190_-_A_Shrunken_Voodoo_Doll.png/revision/latest?cb=20180907140324',
@@ -998,6 +1064,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'A Small Gerbil',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/1/12/195_-_A_Small_Gerbil.png/revision/latest?cb=20180902075732',
@@ -1010,6 +1077,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Slimy Helmet', slot: Slot.HEAD, stats: [
           {stat: Stat.POWER, value: 22000},
           {stat: Stat.TOUGHNESS, value: 484000},
@@ -1020,6 +1088,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/4/46/184_-_Slimy_Helmet.png/revision/latest?cb=20180902075728',
       },
       {
+        itemLevel: 100,
         name: 'Slimy Chest', slot: Slot.CHEST, stats: [
           {stat: Stat.POWER, value: 22000},
           {stat: Stat.TOUGHNESS, value: 500000},
@@ -1030,6 +1099,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/4/41/185_-_Slimy_Chest.png/revision/latest?cb=20180902075729',
       },
       {
+        itemLevel: 100,
         name: 'Slimy Pants', slot: Slot.PANTS, stats: [
           {stat: Stat.POWER, value: 20000},
           {stat: Stat.TOUGHNESS, value: 490000},
@@ -1040,6 +1110,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/0/00/186_-_Slimy_Pants.png/revision/latest?cb=20180902075730',
       },
       {
+        itemLevel: 100,
         name: 'Slimy Boots', slot: Slot.BOOTS, stats: [
           {stat: Stat.POWER, value: 20000},
           {stat: Stat.TOUGHNESS, value: 480000},
@@ -1056,6 +1127,7 @@ export const itemList = [
   {
     setName: SetName.SPOOPY, items: [
       {
+        itemLevel: 100,
         name: 'Spooky Sword', slot: Slot.WEAPON, stats: [
           {stat: Stat.POWER, value: 17776},
           {stat: Stat.TOUGHNESS, value: 600},
@@ -1064,6 +1136,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/9c/107_-_Spooky_Sword.png/revision/latest?cb=20180421191854',
       },
       {
+        itemLevel: 100,
         name: 'Spoopy Helmet', slot: Slot.HEAD, stats: [
           {stat: Stat.POWER, value: 100},
           {stat: Stat.TOUGHNESS, value: 2000},
@@ -1073,6 +1146,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/a/af/103_-_Spoopy_Helmet.png/revision/latest?cb=20180421191559',
       },
       {
+        itemLevel: 100,
         name: 'Ghostly Chest', slot: Slot.CHEST, stats: [
           {stat: Stat.POWER, value: 160},
           {stat: Stat.TOUGHNESS, value: 2070},
@@ -1082,6 +1156,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/1/13/104_-_Ghostly_Chest.png/revision/latest?cb=20180421191727',
       },
       {
+        itemLevel: 100,
         name: 'Pants of Horror', slot: Slot.PANTS, stats: [
           {stat: Stat.POWER, value: 140},
           {stat: Stat.TOUGHNESS, value: 2120},
@@ -1091,6 +1166,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/5/58/105_-_Pants_of_Horror.png/revision/latest?cb=20180421191753',
       },
       {
+        itemLevel: 100,
         name: 'Spectral Boots', slot: Slot.BOOTS, stats: [
           {stat: Stat.POWER, value: 120},
           {stat: Stat.TOUGHNESS, value: 2180},
@@ -1100,12 +1176,14 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/f/fc/106_-_Spectral_Boots.png/revision/latest?cb=20180421191823',
       },
       {
+        itemLevel: 100,
         name: 'Cursed Ring', slot: Slot.ACCESSORY, stats: [
           {stat: Stat.POWER, value: 2100},
           {stat: Stat.TOUGHNESS, value: 2100},
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/9d/108_-_Cursed_Ring.png/revision/latest?cb=20180421191922',
       },
       {
+        itemLevel: 100,
         name: 'Amulet of Sunshine, Sparkles and Gore',
         slot: Slot.ACCESSORY,
         stats: [
@@ -1115,6 +1193,7 @@ export const itemList = [
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/3/3e/109_-_Amulet_of_Sunshine%2C_Sparkles_and_Gore.png/revision/latest?cb=20180420182230',
       },
       {
+        itemLevel: 100,
         name: 'Dragon Wings',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/f/f0/110_-_Dragon_Wings.png/revision/latest?cb=20180420182304',
@@ -1131,6 +1210,7 @@ export const itemList = [
   {
     setName: SetName.STEALTH, items: [
       {
+        itemLevel: 100,
         name: 'A Giant Bazooka', slot: Slot.WEAPON, stats: [
           {stat: Stat.POWER, value: 2200000},
           {stat: Stat.TOUGHNESS, value: 120000},
@@ -1141,6 +1221,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/b/be/177_-_A_Giant_Bazooka.png/revision/latest?cb=20180805092859',
       },
       {
+        itemLevel: 100,
         name: 'Stealthy Hat', slot: Slot.HEAD, stats: [
           {stat: Stat.POWER, value: 10000},
           {stat: Stat.TOUGHNESS, value: 224000},
@@ -1150,6 +1231,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/3/30/173_-_Stealthy_Hat.png/revision/latest?cb=20180805092445',
       },
       {
+        itemLevel: 100,
         name: 'Stealthy Chest', slot: Slot.CHEST, stats: [
           {stat: Stat.POWER, value: 10000},
           {stat: Stat.TOUGHNESS, value: 230000},
@@ -1160,6 +1242,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/7a/174_-_Stealthy_Chest.png/revision/latest?cb=20180805092615',
       },
       {
+        itemLevel: 100,
         name: 'The Stealthiest Armour',
         slot: Slot.CHEST,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/3/30/178_-_The_Stealthiest_Armour.png/revision/latest?cb=20180805093107',
@@ -1174,6 +1257,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'No Pants', slot: Slot.PANTS, stats: [
           {stat: Stat.POWER, value: 10000},
           {stat: Stat.TOUGHNESS, value: 236000},
@@ -1183,6 +1267,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/2/28/175_-_No_Pants.png/revision/latest?cb=20180805092716',
       },
       {
+        itemLevel: 100,
         name: 'High Heeled Boots',
         slot: Slot.BOOTS,
         stats: [
@@ -1200,26 +1285,31 @@ export const itemList = [
   {
     setName: SetName.TRAINING, items: [
       {
+        itemLevel: 100,
         name: 'A Stick', slot: Slot.WEAPON, stats: [
           {stat: Stat.POWER, value: 6},
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/f/f6/75_-_A_Stick.png/revision/latest?cb=20180330172932',
       },
       {
+        itemLevel: 100,
         name: 'Cloth Hat', slot: Slot.HEAD, stats: [
           {stat: Stat.TOUGHNESS, value: 2},
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/8/86/62_-_Cloth_Hat.png/revision/latest?cb=20180330170954',
       },
       {
+        itemLevel: 100,
         name: 'Cloth Shirt', slot: Slot.CHEST, stats: [
           {stat: Stat.TOUGHNESS, value: 2},
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/5/53/63_-_Cloth_Shirt.png/revision/latest?cb=20180330171023',
       },
       {
+        itemLevel: 100,
         name: 'Cloth Leggings', slot: Slot.PANTS, stats: [
           {stat: Stat.TOUGHNESS, value: 2},
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/0/00/64_-_Cloth_Leggings.png/revision/latest?cb=20180330171051',
       },
       {
+        itemLevel: 100,
         name: 'Cloth Boots', slot: Slot.BOOTS, stats: [
           {stat: Stat.TOUGHNESS, value: 2},
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/c/cd/65_-_Cloth_Boots.png/revision/latest?cb=20180330171113',
@@ -1229,6 +1319,7 @@ export const itemList = [
   {
     setName: SetName.UUG_RINGS, items: [
       {
+        itemLevel: 100,
         name: 'Ring of Greed', slot: Slot.ACCESSORY, stats: [
           {stat: Stat.DROP_CHANCE, value: 120},
           {stat: Stat.GOLD_DROP, value: 1600},
@@ -1236,6 +1327,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/c/cf/136_-_Ring_of_Greed.png/revision/latest?cb=20180420183403',
       },
       {
+        itemLevel: 100,
         name: 'UUG\'s \'Special\' Ring',
         slot: Slot.ACCESSORY,
         stats: [
@@ -1248,6 +1340,7 @@ export const itemList = [
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/d/dc/149_-_UUG%27s_%27Special%27_Ring.png/revision/latest?cb=20180601090251',
       },
       {
+        itemLevel: 100,
         name: 'Ring of Might', slot: Slot.ACCESSORY, stats: [
           {stat: Stat.POWER, value: 13332},
           {stat: Stat.TOUGHNESS, value: 13332},
@@ -1256,6 +1349,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/f/f0/137_-_Ring_of_Might.png/revision/latest?cb=20180420183425',
       },
       {
+        itemLevel: 100,
         name: 'Ring of Utility', slot: Slot.ACCESSORY, stats: [
           {stat: Stat.POWER, value: 2000},
           {stat: Stat.TOUGHNESS, value: 2000},
@@ -1265,6 +1359,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/c/c0/138_-_Ring_of_Utility.png/revision/latest?cb=20180420183453',
       },
       {
+        itemLevel: 100,
         name: 'Ring of Way Too Much Energy',
         slot: Slot.ACCESSORY,
         stats: [
@@ -1277,6 +1372,7 @@ export const itemList = [
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/96/139_-_Ring_of_Way_Too_Much_Energy.png/revision/latest?cb=20180420183518',
       },
       {
+        itemLevel: 100,
         name: 'Ring of Way Too Much Magic',
         slot: Slot.ACCESSORY,
         stats: [
@@ -1294,14 +1390,21 @@ export const itemList = [
   {
     setName: SetName.WANDERER, items: [
       {
-        name: 'Wanderer\'s Cane', slot: Slot.WEAPON, stats: [
+        itemLevel: 100,
+        name: 'Wanderer\'s Cane',
+        slot: Slot.WEAPON,
+        stats: [
           {stat: Stat.POWER, value: 340000},
           {stat: Stat.TOUGHNESS, value: 1020000},
 
-        ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/6/6e/154_-_Wanderer%27s_Cane.png/revision/latest?cb=20180619092612',
+        ],
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/6/6e/154_-_Wanderer%27s_Cane.png/revision/latest?cb=20180619092612',
       },
       {
-        name: 'The Candy Cane of Destiny', slot: Slot.WEAPON, stats: [
+        itemLevel: 100,
+        name: 'The Candy Cane of Destiny',
+        slot: Slot.WEAPON,
+        stats: [
           {stat: Stat.POWER, value: 340000},
           {stat: Stat.TOUGHNESS, value: 1020000},
           {stat: Stat.ENERGY_POWER, value: 2000},
@@ -1311,9 +1414,11 @@ export const itemList = [
           {stat: Stat.MAGIC_CAP, value: 200},
           {stat: Stat.MAGIC_BARS, value: 2000},
 
-        ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/f/fd/159_-_The_Candy_Cane_of_Destiny.png/revision/latest?cb=20180619111530',
+        ],
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/f/fd/159_-_The_Candy_Cane_of_Destiny.png/revision/latest?cb=20180619111530',
       },
       {
+        itemLevel: 100,
         name: 'Wanderer\'s Hat', slot: Slot.HEAD, stats: [
           {stat: Stat.POWER, value: 2000},
           {stat: Stat.TOUGHNESS, value: 42000},
@@ -1323,6 +1428,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/1/10/150_-_Wanderer%27s_Hat.png/revision/latest?cb=20180619095346',
       },
       {
+        itemLevel: 100,
         name: 'Wanderer\'s Chest',
         slot: Slot.CHEST,
         stats: [
@@ -1335,6 +1441,7 @@ export const itemList = [
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/90/151_-_Wanderer%27s_Chest.png/revision/latest?cb=20180619094826',
       },
       {
+        itemLevel: 100,
         name: 'Wanderer\'s Pants',
         slot: Slot.PANTS,
         stats: [
@@ -1347,6 +1454,7 @@ export const itemList = [
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/2/2d/152_-_Wanderer%27s_Pants.png/revision/latest?cb=20180619103043',
       },
       {
+        itemLevel: 100,
         name: 'Wanderer\'s Boots',
         slot: Slot.BOOTS,
         stats: [
@@ -1358,6 +1466,7 @@ export const itemList = [
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/3/35/153_-_Wanderer%27s_Boots.png/revision/latest?cb=20180619091715',
       },
       {
+        itemLevel: 100,
         name: 'Fanny Pack',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/8/8d/160_-_Fanny_Pack.png/revision/latest?cb=20180619111636',
@@ -1376,6 +1485,7 @@ export const itemList = [
   {
     setName: SetName.WANDERER2, items: [
       {
+        itemLevel: 100,
         name: 'taH s\'rerednaW', slot: Slot.HEAD, stats: [
           {stat: Stat.POWER, value: 2000},
           {stat: Stat.TOUGHNESS, value: 42000},
@@ -1385,6 +1495,7 @@ export const itemList = [
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/c/c7/155_-_taH_s%27rerednaW.png/revision/latest?cb=20180619083814',
       },
       {
+        itemLevel: 100,
         name: 'tsehC s\'rerednaW',
         slot: Slot.CHEST,
         stats: [
@@ -1397,6 +1508,7 @@ export const itemList = [
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/0/0d/156_-_tsehC_s%27rerednaW.png/revision/latest?cb=20180619083038',
       },
       {
+        itemLevel: 100,
         name: 'stnaP s\'rerednaW',
         slot: Slot.PANTS,
         stats: [
@@ -1409,6 +1521,7 @@ export const itemList = [
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/f/f5/157_-_stnaP_s%27rerednaW.png/revision/latest?cb=20180619075904',
       },
       {
+        itemLevel: 100,
         name: 'stooB s\'rerednaW',
         slot: Slot.BOOTS,
         stats: [
@@ -1420,6 +1533,7 @@ export const itemList = [
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/8/8a/158_-_stooB_s%27rerednaW.png/revision/latest?cb=20180619081719',
       },
       {
+        itemLevel: 100,
         name: 'Dorky Glasses',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/e/ec/161_-_Dorky_Glasses.png/revision/latest?cb=20180619111717',
@@ -1439,12 +1553,14 @@ export const itemList = [
     setName: SetName.FOREST_PENDANT,
     items: [
       {
+        itemLevel: 100,
         name: 'Forest Pendant',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/5/5f/53_-_Forest_Pendant.png/revision/latest?cb=20180330170456',
         stats: [],
       },
       {
+        itemLevel: 100,
         name: 'Ascended Forest Pendant',
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/d/d8/76_-_Ascended_Forest_Pendant.png/revision/latest?cb=20180330173013',
         stats: [
@@ -1455,6 +1571,7 @@ export const itemList = [
         ], slot: Slot.ACCESSORY,
       },
       {
+        itemLevel: 100,
         name: 'Ascended Ascended Forest Pendant',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/3/3a/94_-_Ascended_Ascended_Forest_Pendant.png/revision/latest?cb=20180513161430',
@@ -1467,6 +1584,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Ascended Ascended Ascended Pendant',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/4/49/142_-_Ascended_Ascended_Ascended_Pendant.png/revision/latest?cb=20180516205139',
@@ -1479,20 +1597,21 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Ascended x4 Pendant',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/96/170_-_Ascended_x4_Pendant.png/revision/latest?cb=20180729135209',
         stats: [
           {stat: Stat.POWER, value: 200000},
           {stat: Stat.TOUGHNESS, value: 200000},
-          {stat: Stat.BEARD_SPEED, value: 200},
-          {stat: Stat.ENERGY_POWER, value: 3000},
-          {stat: Stat.MAGIC_POWER, value: 3000},
-          {stat: Stat.MAGIC_CAP, value: 150},
-          {stat: Stat.ENERGY_CAP, value: 150},
+          {stat: Stat.QUEST_DROP, value: 10},
+          {stat: Stat.ENERGY_CAP, value: 240},
+          {stat: Stat.MAGIC_CAP, value: 240},
+          {stat: Stat.DROP_CHANCE, value: 500},
         ],
       },
       {
+        itemLevel: 100,
         name: 'Ascended x5 Pendant',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/3/34/229_-_Ascended_x5_Pendant.png/revision/latest?cb=20181121154953',
@@ -1511,6 +1630,7 @@ export const itemList = [
   {
     setName: SetName.LOOTY, items: [
       {
+        itemLevel: 100,
         name: 'Looty McLootFace',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/2/22/67_-_Looty_McLootFace.png/revision/latest?cb=20180330171226',
@@ -1521,6 +1641,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Sir Looty McLootington III, Esquire',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/f/fd/128_-_Sir_Looty_McLootington_III%2C_Esquire.png/revision/latest?cb=20180409134100',
@@ -1533,6 +1654,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'King Looty',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/8/8a/169_-_King_Looty.png/revision/latest?cb=20180706092451',
@@ -1547,6 +1669,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Emperor Looty',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/1/14/230_-_Emperor_Looty.png/revision/latest?cb=20181121155138',
@@ -1566,6 +1689,7 @@ export const itemList = [
     setName: SetName.OTHER,
     items: [
       {
+        itemLevel: 100,
         name: 'The Triple Flubber',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/9c/121_-_The_Triple_Flubber.png/revision/latest?cb=20180402160149',
@@ -1578,6 +1702,7 @@ export const itemList = [
   {
     setName: SetName.EDGY, items: [
       {
+        itemLevel: 100,
         name: 'Edgy Chest',
         slot: Slot.CHEST,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/9c/214_-_Edgy_Chest.png/revision/latest?cb=20181111161316',
@@ -1592,6 +1717,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Edgy Helmet',
         slot: Slot.HEAD,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/93/213_-_Edgy_Helmet.png/revision/latest?cb=20181203091607',
@@ -1605,6 +1731,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'BOTH Edgy Boots',
         slot: Slot.BOOTS,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/e/eb/220_-_BOTH_Edgy_Boots.png/revision/latest?cb=20181119175948',
@@ -1620,6 +1747,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Left Edgy Boot',
         slot: Slot.BOOTS,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/0/08/216_-_Left_Edgy_Boot.png/revision/latest?cb=20181111161316',
@@ -1632,6 +1760,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Right Edgy Boot',
         slot: Slot.BOOTS,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/b/b2/219_-_Right_Edgy_Boot.png/revision/latest?cb=20181203073628',
@@ -1644,6 +1773,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Edgy Pants',
         slot: Slot.PANTS,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/8/89/215_-_Edgy_Pants.png/revision/latest?cb=20181111161316',
@@ -1657,6 +1787,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Edgy Jaw Axe',
         slot: Slot.WEAPON,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/a/a5/217_-_Edgy_Jaw_Axe.png/revision/latest?cb=20181203091049',
@@ -1669,6 +1800,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'A Cheap Plastik Amulet',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/8/83/218_-_A_Cheap_Plastik_Amulet.png/revision/latest?cb=20181203104051',
@@ -1688,6 +1820,7 @@ export const itemList = [
   {
     setName: SetName.PINK, items: [
       {
+        itemLevel: 100,
         name: 'Clown Hat',
         slot: Slot.HEAD,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/b/b5/Clown_Hat.png/revision/latest/scale-to-width-down/50?cb=20181208082030',
@@ -1702,6 +1835,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Fabulous Super Chest',
         slot: Slot.CHEST,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/b/be/232_-_Fabulous_Super_Chest.png/revision/latest?cb=20181205183706',
@@ -1716,6 +1850,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'A Crappy Tutu',
         slot: Slot.PANTS,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/d/d7/233_-_A_Crappy_Tutu.png/revision/latest?cb=20181205183714',
@@ -1729,6 +1864,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Pretty Pink Slippers',
         slot: Slot.BOOTS,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/b/b6/234_-_Pretty_Pink_Slippers.png/revision/latest?cb=20181205183721',
@@ -1742,6 +1878,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Giant Sticky Foot',
         slot: Slot.WEAPON,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/6/64/235_-_Giant_Sticky_Foot.png/revision/latest?cb=20181205183727',
@@ -1755,6 +1892,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'A Pretty Pink Bow',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/8/8c/236_-_A_Pretty_Pink_Bow.png/revision/latest?cb=20181205183734',
@@ -1771,6 +1909,7 @@ export const itemList = [
   {
     setName: SetName.NERD, items: [
       {
+        itemLevel: 100,
         name: 'A Worn Out Fedora',
         slot: Slot.HEAD,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/72/237_-_A_Worn_Out_Fedora.png/revision/latest?cb=20181208020842',
@@ -1784,6 +1923,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Sweat-Stained NGU Shirt',
         slot: Slot.CHEST,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/5/50/238_-_Sweat-Stained_NGU_Shirt.png/revision/latest?cb=20181208020853',
@@ -1797,6 +1937,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Not Sweat-Stained Underpants',
         slot: Slot.PANTS,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/2/20/239_-_Not_Sweat-Stained_Underpants.png/revision/latest?cb=20181208020859',
@@ -1810,6 +1951,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Nerdy Shoes',
         slot: Slot.BOOTS,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/0/00/240_-_Nerdy_Shoes.png/revision/latest?cb=20181208020906',
@@ -1824,6 +1966,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Superior Japanese Katana',
         slot: Slot.WEAPON,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/c/c5/241_-_Superior_Japanese_Katana.png/revision/latest?cb=20181208020913',
@@ -1838,6 +1981,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'An Ordinary Calculator',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/d/d9/An_Ordinary_Calculator.png/revision/latest?cb=20181212191857',
@@ -1850,6 +1994,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Anime Figurine',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/f/f4/243_-_Anime_Figurine.png/revision/latest?cb=20181208020927',
@@ -1863,6 +2008,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Anime Bodypillow',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/4/40/Anime_Bodypillow.png/revision/latest?cb=20190124100124',
@@ -1876,6 +2022,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Red Meeple Thingy',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/0/02/2018-12-25_15_16_12-Play_NGU_IDLE%2C_a_free_online_game_on_Kongregate.png/revision/latest/scale-to-width-down/50?cb=20181225152601',
@@ -1888,6 +2035,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'The D20',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/91/2018-12-24_22_09_18-Play_NGU_IDLE%2C_a_free_online_game_on_Kongregate.png/revision/latest/scale-to-width-down/50?cb=20181224221119',
@@ -1900,6 +2048,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'The D8',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/2/29/2018-12-24_21_49_59-Play_NGU_IDLE%2C_a_free_online_game_on_Kongregate.png/revision/latest/scale-to-width-down/50?cb=20181224215859',
@@ -1912,9 +2061,10 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'A Bag of Trash',
         slot: Slot.ACCESSORY,
-        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/2/25/248.png/revision/latest/scale-to-width-down/48?cb=20190123172736',
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/b/b2/BagOfTrash.png/revision/latest?cb=20190408160151',
         stats: [
           {stat: Stat.POWER, value: 1000000},
           {stat: Stat.TOUGHNESS, value: 3000000},
@@ -1925,6 +2075,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Heart Shaped Panties',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/d/dd/249.png/revision/latest?cb=20190124103356',
@@ -1943,6 +2094,7 @@ export const itemList = [
   {
     setName: SetName.META, items: [
       {
+        itemLevel: 100,
         name: 'Numerical Head',
         slot: Slot.HEAD,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/5/5a/Numerical_Head.png/revision/latest?cb=20190202044306',
@@ -1956,6 +2108,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Numerical Chest',
         slot: Slot.CHEST,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/e/ea/Numerical_Chest.png/revision/latest?cb=20190202041424',
@@ -1969,6 +2122,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Numerical Legs',
         slot: Slot.PANTS,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/76/Numerical_Legs.png/revision/latest?cb=20190202042153',
@@ -1982,6 +2136,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Numerical Boots',
         slot: Slot.BOOTS,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/93/Numerical_Boots.png/revision/latest?cb=20190203235840',
@@ -1995,6 +2150,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'The Number 7',
         slot: Slot.WEAPON,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/4/46/The_Number_7.png/revision/latest?cb=20190202040256',
@@ -2008,6 +2164,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: '69 Charm',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/5/51/69_Charm.png/revision/latest?cb=20190202042941',
@@ -2019,6 +2176,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Infinity Charm',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/e/e4/Infinity_Charm.png/revision/latest?cb=20190202043740',
@@ -2036,6 +2194,7 @@ export const itemList = [
   {
     setName: SetName.PARTY, items: [
       {
+        itemLevel: 100,
         name: 'Party Hat',
         slot: Slot.HEAD,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/92/258_-_Party_Hat.png/revision/latest?cb=20190210184658',
@@ -2049,6 +2208,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Pogmail Chest',
         slot: Slot.CHEST,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/9b/259_-_Pogmail_Chest.png/revision/latest?cb=20190210184714',
@@ -2062,6 +2222,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Tear Away Pants',
         slot: Slot.PANTS,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/4/42/260_-_Tear_Away_Pants.png/revision/latest?cb=20190210184733',
@@ -2075,6 +2236,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Pizza Boots',
         slot: Slot.BOOTS,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/1/11/261_-_Pizza_Boots.png/revision/latest?cb=20190210184753',
@@ -2088,6 +2250,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'The God of Thunder\'s Hammer',
         slot: Slot.WEAPON,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/1/14/262_-_The_God_of_Thunder%27s_Hammer.png/revision/latest?cb=20190210184820',
@@ -2101,6 +2264,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Plastic Red Cup',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/2/2b/263_-_Plastic_Red_Cup.png/revision/latest?cb=20190210184842',
@@ -2115,6 +2279,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Party Whistle',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/a/a1/264_-_Party_Whistle.png/revision/latest?cb=20190210184912',
@@ -2132,6 +2297,7 @@ export const itemList = [
   {
     setName: SetName.MOBSTER, items: [
       {
+        itemLevel: 100,
         name: 'Mobster Hat',
         slot: Slot.HEAD,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/0/08/265_-_Mobster_Hat.png/revision/latest?cb=20190304210613',
@@ -2145,6 +2311,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Mobster Vest',
         slot: Slot.CHEST,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/e/ec/266_-_Mobster_Vest.png/revision/latest?cb=20190304210627',
@@ -2158,6 +2325,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Mobster Pants',
         slot: Slot.PANTS,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/2/2c/267_-_Mobster_Pants.png/revision/latest?cb=20190304210640',
@@ -2171,6 +2339,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Cement Boots',
         slot: Slot.BOOTS,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/8/82/268_-_Cement_Boots.png/revision/latest?cb=20190304210649',
@@ -2184,6 +2353,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Tommy Gun',
         slot: Slot.WEAPON,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/9e/269_-_Tommy_Gun.png/revision/latest?cb=20190304210655',
@@ -2198,6 +2368,7 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'A Garrote',
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/4/4d/270_-_A_Garrote.png/revision/latest?cb=20190304210702',
@@ -2211,9 +2382,10 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Brass Knuckles',
         slot: Slot.ACCESSORY,
-        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/71/271_-_Brass_Knuckles.png/revision/latest?cb=20190304210708',
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/4/45/BrassKnuckles.png/revision/latest?cb=20190408160524',
         stats: [
           {stat: Stat.POWER, value: 7000000},
           {stat: Stat.TOUGHNESS, value: 7000000},
@@ -2225,9 +2397,10 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'The Godmother\'s Wand',
         slot: Slot.ACCESSORY,
-        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/e/e7/K6pqFGu.png/revision/latest?cb=20190401143341',
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/5/53/Wand.png/revision/latest?cb=20190408161318',
         stats: [
           {stat: Stat.POWER, value: 3000000},
           {stat: Stat.TOUGHNESS, value: 3000000},
@@ -2239,9 +2412,10 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Molotov Cocktail',
         slot: Slot.ACCESSORY,
-        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/3/39/GCG0Yrg.png/revision/latest?cb=20190401141442',
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/2/2d/MolotovCocktail.png/revision/latest?cb=20190408160337',
         stats: [
           {stat: Stat.POWER, value: 20000000},
           {stat: Stat.TOUGHNESS, value: 20000000},
@@ -2251,9 +2425,10 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Violin Case',
         slot: Slot.ACCESSORY,
-        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/1/12/B3dszpz.png/revision/latest?cb=20190401141624',
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/7b/ViolinCase.png/revision/latest?cb=20190408155846',
         stats: [
           {stat: Stat.POWER, value: 14000000},
           {stat: Stat.TOUGHNESS, value: 14000000},
@@ -2266,9 +2441,10 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'The Godmother\'s Ring',
         slot: Slot.ACCESSORY,
-        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/a/a3/AOpE6So.png/revision/latest?cb=20190401142153',
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/2/25/Ring.png/revision/latest?cb=20190408161000',
         stats: [
           {stat: Stat.POWER, value: 30000000},
           {stat: Stat.TOUGHNESS, value: 30000000},
@@ -2277,9 +2453,10 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Left Fairy Wing',
         slot: Slot.ACCESSORY,
-        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/f/fc/Urodqun.png/revision/latest?cb=20190401141854',
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/6/66/LeftWing.png/revision/latest?cb=20190408161024',
         stats: [
           {stat: Stat.POWER, value: 80000000},
           {stat: Stat.TOUGHNESS, value: 80000000},
@@ -2289,9 +2466,10 @@ export const itemList = [
         ],
       },
       {
+        itemLevel: 100,
         name: 'Right Fairy Wing',
         slot: Slot.ACCESSORY,
-        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/0/08/TtQweWp.png/revision/latest?cb=20190401141928',
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/90/RightWing.png/revision/latest?cb=20190408161050',
         stats: [
           {stat: Stat.POWER, value: 80000000},
           {stat: Stat.TOUGHNESS, value: 80000000},
@@ -2303,3 +2481,16 @@ export const itemList = [
     ],
   },
 ];
+
+
+export function getAllAccessories(): Item[] {
+  const items: Item[] = [];
+  itemList.forEach(itemSet => {
+    itemSet.items.forEach(item => {
+      if (item.slot == Slot.ACCESSORY) {
+        items.push(item);
+      }
+    });
+  });
+  return items;
+}
