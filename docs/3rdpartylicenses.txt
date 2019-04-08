@@ -63,6 +63,9 @@ MIT
 @angular/fire/storage
 MIT
 
+@angular/forms
+MIT
+
 @angular/material
 MIT
 The MIT License
@@ -88,11 +91,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
-@angular/material/sidenav
+@angular/material/form-field
 
 @angular/material/tooltip
 
 @angular/platform-browser
+MIT
+
+@angular/router
 MIT
 
 @firebase/app
