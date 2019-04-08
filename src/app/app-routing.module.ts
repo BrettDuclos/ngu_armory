@@ -8,7 +8,8 @@ const routes: Routes = [
   {path: '', component: ArmoryComponent},
   {path: 'best_acc', component: BestAccsComponent},
   {path: 'patch_notes', component: PatchNotesComponent},
-  {path: '**', redirectTo: '', pathMatch: 'full'},
+  {path: '**', redirectTo: '/', pathMatch: 'full'},
+  {path: '**', redirectTo: '/'},
 
 ];
 
