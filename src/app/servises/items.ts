@@ -239,8 +239,8 @@ export const itemList: {setName: SetName, items: Item[];}[] = [
     items: [
       {
         name: 'Bearded Axe', slot: Slot.WEAPON, stats: [
-          {stat: Stat.POWER, value: 140000},
-          {stat: Stat.TOUGHNESS, value: 10000},
+          {stat: Stat.POWER, value: 166000},
+          {stat: Stat.TOUGHNESS, value: 12000},
           {stat: Stat.BEARD_SPEED, value: 20},
           {stat: Stat.ENERGY_BARS, value: 440},
           {stat: Stat.MAGIC_BARS, value: 440},
@@ -261,8 +261,8 @@ export const itemList: {setName: SetName, items: Item[];}[] = [
       {
         name: 'Gossamer Chest', slot: Slot.CHEST, stats: [
           {stat: Stat.POWER, value: 2200},
-          {stat: Stat.TOUGHNESS, value: 22000},
-          {stat: Stat.ENERGY_CAP, value: 120},
+          {stat: Stat.TOUGHNESS, value: 25000},
+          {stat: Stat.ENERGY_CAP, value: 124},
           {stat: Stat.MAGIC_CAP, value: 100},
         ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/77/144_-_Gossamer_Chest.png/',
@@ -270,17 +270,17 @@ export const itemList: {setName: SetName, items: Item[];}[] = [
       {
         name: 'Braided Beard Legs', slot: Slot.PANTS, stats: [
           {stat: Stat.POWER, value: 2200},
-          {stat: Stat.TOUGHNESS, value: 22000},
+          {stat: Stat.TOUGHNESS, value: 25000},
           {stat: Stat.MAGIC_BARS, value: 460},
           {stat: Stat.MAGIC_CAP, value: 86},
-          {stat: Stat.MAGIC_POWER, value: 560},
+          {stat: Stat.MAGIC_POWER, value: 580},
         ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/a/ac/145_-_Braided_Beard_Legs.png/',
       },
       {
         name: 'Fuzzy Orange Cheeto Slippers!', slot: Slot.BOOTS, stats: [
           {stat: Stat.POWER, value: 2200},
-          {stat: Stat.TOUGHNESS, value: 22000},
+          {stat: Stat.TOUGHNESS, value: 25000},
           {stat: Stat.ENERGY_BARS, value: 660},
           {stat: Stat.ENERGY_POWER, value: 440},
           {stat: Stat.ENERGY_CAP, value: 40},
@@ -640,7 +640,7 @@ export const itemList: {setName: SetName, items: Item[];}[] = [
       {
         itemLevel: 100,
         name: 'Paper Fan', slot: Slot.WEAPON, stats: [
-          {stat: Stat.POWER, value: 38000},
+          {stat: Stat.POWER, value: 40000},
           {stat: Stat.MAGIC_BARS, value: 200},
           {stat: Stat.MAGIC_POWER, value: 260},
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/95/126_-_Paper_Fan.png/revision/latest?cb=20180420183017',
@@ -671,7 +671,7 @@ export const itemList: {setName: SetName, items: Item[];}[] = [
         itemLevel: 100,
         name: 'Gaudy Shirt', slot: Slot.CHEST, stats: [
           {stat: Stat.POWER, value: 500},
-          {stat: Stat.TOUGHNESS, value: 4800},
+          {stat: Stat.TOUGHNESS, value: 5000},
           {stat: Stat.ENERGY_CAP, value: 76},
           {stat: Stat.ENERGY_POWER, value: 192},
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/6/6b/123_-_Gaudy_Shirt.png/revision/latest?cb=20180420182843',
@@ -680,7 +680,7 @@ export const itemList: {setName: SetName, items: Item[];}[] = [
         itemLevel: 100,
         name: 'Gaudy Pants', slot: Slot.PANTS, stats: [
           {stat: Stat.POWER, value: 600},
-          {stat: Stat.TOUGHNESS, value: 5000},
+          {stat: Stat.TOUGHNESS, value: 5200},
           {stat: Stat.ENERGY_CAP, value: 72},
           {stat: Stat.ENERGY_POWER, value: 180},
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/73/124_-_Gaudy_Pants.png/revision/latest?cb=20180420182911',
@@ -689,7 +689,7 @@ export const itemList: {setName: SetName, items: Item[];}[] = [
         itemLevel: 100,
         name: 'Gaudy Boots', slot: Slot.BOOTS, stats: [
           {stat: Stat.POWER, value: 400},
-          {stat: Stat.TOUGHNESS, value: 4600},
+          {stat: Stat.TOUGHNESS, value: 4800},
           {stat: Stat.MAGIC_POWER, value: 240},
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/3/36/125_-_Gaudy_Boots.png/revision/latest?cb=20180420182946',
       },
@@ -907,7 +907,7 @@ export const itemList: {setName: SetName, items: Item[];}[] = [
       {
         itemLevel: 100,
         name: 'Beam Laser Sword', slot: Slot.WEAPON, stats: [
-          {stat: Stat.POWER, value: 86000},
+          {stat: Stat.POWER, value: 88000},
           {stat: Stat.ENERGY_POWER, value: 280},
           {stat: Stat.ENERGY_CAP, value: 40},
           {stat: Stat.ENERGY_BARS, value: 200},
@@ -917,9 +917,9 @@ export const itemList: {setName: SetName, items: Item[];}[] = [
         itemLevel: 100,
         name: 'Mega Helmet', slot: Slot.HEAD, stats: [
           {stat: Stat.POWER, value: 600},
-          {stat: Stat.TOUGHNESS, value: 11000},
-          {stat: Stat.ENERGY_POWER, value: 440},
-          {stat: Stat.MAGIC_POWER, value: 440},
+          {stat: Stat.TOUGHNESS, value: 11200},
+          {stat: Stat.ENERGY_POWER, value: 460},
+          {stat: Stat.MAGIC_POWER, value: 460},
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/e/e1/130_-_Mega_Helmet.png/revision/latest?cb=20180420183116',
       },
       {
@@ -927,25 +927,25 @@ export const itemList: {setName: SetName, items: Item[];}[] = [
         name: 'Mega Chest', slot: Slot.CHEST, stats: [
           {stat: Stat.POWER, value: 600},
           {stat: Stat.TOUGHNESS, value: 11200},
-          {stat: Stat.ENERGY_BARS, value: 320},
-          {stat: Stat.MAGIC_BARS, value: 320},
+          {stat: Stat.ENERGY_BARS, value: 340},
+          {stat: Stat.MAGIC_BARS, value: 340},
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/9/90/131_-_Mega_Chest.png/revision/latest?cb=20180420183142',
       },
       {
         itemLevel: 100,
         name: 'Mega Blue Jeans', slot: Slot.PANTS, stats: [
           {stat: Stat.POWER, value: 600},
-          {stat: Stat.TOUGHNESS, value: 11200},
-          {stat: Stat.ENERGY_CAP, value: 90},
-          {stat: Stat.MAGIC_CAP, value: 90},
+          {stat: Stat.TOUGHNESS, value: 11400},
+          {stat: Stat.ENERGY_CAP, value: 92},
+          {stat: Stat.MAGIC_CAP, value: 92},
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/d/da/132_-_Mega_Blue_Jeans.png/revision/latest?cb=20180420183213',
       },
       {
         itemLevel: 100,
         name: 'Mega Boots', slot: Slot.BOOTS, stats: [
           {stat: Stat.POWER, value: 600},
-          {stat: Stat.TOUGHNESS, value: 10800},
-          {stat: Stat.MAGIC_BARS, value: 290},
+          {stat: Stat.TOUGHNESS, value: 11000},
+          {stat: Stat.MAGIC_BARS, value: 300},
           {stat: Stat.MAGIC_POWER, value: 280},
         ], img: 'https://vignette.wikia.nocookie.net/nguadventure/images/0/07/133_-_Mega_Boots.png/revision/latest?cb=20180420183238',
       },
