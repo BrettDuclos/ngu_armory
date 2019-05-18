@@ -62,9 +62,9 @@ export class InventoryService {
   };
 
   constructor(private storage: AngularFireStorage) {
-    this.totalStats = this.initStats();
-    this.savedStats = this.initStats();
-    this.totalStatsForAccs = this.initBaseStats();
+    this.totalStats = InventoryService.initStats();
+    this.savedStats = InventoryService.initStats();
+    this.totalStatsForAccs = InventoryService.initBaseStats();
     const emptySlotRef = this.storage.ref('empty_slot');
     this.emptyItemIcons.weapon = emptySlotRef.child('weapon.png').getDownloadURL();
     this.emptyItemIcons.accessory = emptySlotRef.child('accessory.png').getDownloadURL();
@@ -227,7 +227,7 @@ export class InventoryService {
   public inventoryTooltip(item: Item): string {
     let tooltip = item.name + '\n\n';
     item.stats.forEach((itemStat) => {
-      tooltip += itemStat.stat + ': ' + itemStat.value + '\n';
+      tooltip += itemStat.stat + ': ' + itemStat.value.toLocaleString() + '\n';
       if (itemStat.stat === 'Toughness' && item.stats.indexOf(itemStat) !== item.stats.length - 1) {
         tooltip += '____________\n';
       }
@@ -250,7 +250,7 @@ export class InventoryService {
     this.equippedAccsChanged.next(this.equippedAccs);
   }
 
-  private initBaseStats() {
+  private static initBaseStats() {
     return [
       {stat: Stat.ENERGY_POWER, amount: 0},
       {stat: Stat.ENERGY_CAP, amount: 0},
@@ -260,9 +260,9 @@ export class InventoryService {
     ];
   }
 
-  private initStats() {
+  private static initStats() {
     return [
-      ...this.initBaseStats(),
+      ...InventoryService.initBaseStats(),
       {stat: Stat.POWER, amount: 0},
       {stat: Stat.TOUGHNESS, amount: 0},
       {stat: Stat.ENERGY_BARS, amount: 0},
@@ -283,6 +283,12 @@ export class InventoryService {
       {stat: Stat.MOVE_COOLDOWN, amount: 0},
       {stat: Stat.YGGDRASIL_YIELD, amount: 0},
       {stat: Stat.DAYCARE_SPEED, amount: 0},
+      {stat: Stat.HACK_SPEED, amount: 0},
+      {stat: Stat.COOKING, amount: 0},
+      {stat: Stat.RES3_POWER, amount: 0},
+      {stat: Stat.RES3_CAP, amount: 0},
+      {stat: Stat.RES3_BARS, amount: 0},
+      {stat: Stat.WISH_SPEED, amount: 0},
     ];
   }
 }

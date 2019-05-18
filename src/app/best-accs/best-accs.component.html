@@ -58,9 +58,21 @@
       {{acc.value | number: '0.0-0' }}
     </div>
   </ng-container>
+  <ng-container *ngIf='bestHackAccs.length > 0'>
+    <p>
+      Top 3 Hack speed combination:
+    </p>
+    <div *ngFor='let acc of bestHackAccs| slice:0:3'>
+      <img *ngFor='let item of acc.items '
+           [matTooltip]='inventoryTooltip(item)'
+           [src]='item.img'>
+      {{acc.value | number: '0.0-0' }}
+    </div>
+  </ng-container>
 </div>
 <div  class='content' style='margin-top: 10px;'>
   <img *ngFor='let item of allItems'
+       style='width: 50px; height: 50px;'
        [class.clicked_item]='item.isEquippedInAccs'
        [matTooltip]='inventoryTooltip(item)'
        (click)='equipAcc(item)'

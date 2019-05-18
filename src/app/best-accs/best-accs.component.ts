@@ -15,6 +15,7 @@ export class BestAccsComponent implements OnInit, OnDestroy {
   bestENGUAccs: {items: Item[], value: number}[] = [];
   bestMNGUAccs: {items: Item[], value: number}[] = [];
   bestCombinedAccs: {items: Item[], value: number}[] = [];
+  bestHackAccs: {items: Item[], value: number}[] = [];
   equippedAccs: Item[] = [];
   equippedAccsSubscription: Subscription;
   inputs: string[] = [];
@@ -51,6 +52,7 @@ export class BestAccsComponent implements OnInit, OnDestroy {
     this.bestENGUAccs = [];
     this.bestMNGUAccs = [];
     this.bestCombinedAccs = [];
+    this.bestHackAccs = [];
     let nguAccs: {combination: number[]; value: number; energyOrMagic: energyOrMagic}[]
       = this.combinationsService.findBestAccsNGU(this.equippedAccs, parseInt(slotsAmount));
     for (let i = 0; i < nguAccs.length; i++) {
@@ -68,6 +70,9 @@ export class BestAccsComponent implements OnInit, OnDestroy {
         case 'both':
           this.bestCombinedAccs.push({items: items, value: nguAccs[i].value});
           break;
+        case 'hack':
+          this.bestHackAccs.push({items: items, value: nguAccs[i].value});
+          break;
       }
 
     }
@@ -79,6 +84,9 @@ export class BestAccsComponent implements OnInit, OnDestroy {
       return b.value - a.value;
     });
     this.bestCombinedAccs.sort((a, b) => {
+      return b.value - a.value;
+    });
+    this.bestHackAccs.sort((a, b) => {
       return b.value - a.value;
     });
   }

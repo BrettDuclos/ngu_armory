@@ -12,9 +12,10 @@ import {Subscription} from 'rxjs';
 export class ArmoryComponent implements OnInit, OnDestroy {
   totalStats: SingleStat[];
   savedStats: SingleStat[];
-  savedTotalNguSpeed = {
+  savedTotalSpeed = {
     energy: 0,
     magic: 0,
+    hack: 0
   };
   emptyItemIcons;
   inventoryItems: {setName: SetName, items: Item[]}[];
@@ -86,8 +87,9 @@ export class ArmoryComponent implements OnInit, OnDestroy {
   }
 
   public saveEquipment() {
-    this.savedTotalNguSpeed.energy = this.energyNgu();
-    this.savedTotalNguSpeed.magic = this.magicNgu();
+    this.savedTotalSpeed.energy = this.energyNgu();
+    this.savedTotalSpeed.magic = this.magicNgu();
+    this.savedTotalSpeed.hack = this.hackSpeed();
     this.inventoryService.saveEquipment();
   }
 
@@ -100,37 +102,51 @@ export class ArmoryComponent implements OnInit, OnDestroy {
   }
 
   public statDifMNGU() {
-    const diff = this.magicNgu() / this.savedTotalNguSpeed.magic;
-    if (this.savedTotalNguSpeed.magic == 0) {
+    if (this.savedTotalSpeed.magic == 0) {
       return 100;
     }
+    const diff = this.magicNgu() / this.savedTotalSpeed.magic;
     return (diff - 1) * 100;
   }
 
 
   public statDifENGU() {
-    const diff = this.energyNgu() / this.savedTotalNguSpeed.energy;
-    if (this.savedTotalNguSpeed.energy == 0) {
+    if (this.savedTotalSpeed.energy == 0) {
       return 100;
     }
+    const diff = this.energyNgu() / this.savedTotalSpeed.energy;
+    return (diff - 1) * 100;
+  }
+
+  public statDifHack() {
+    if (this.savedTotalSpeed.hack == 0) {
+      return 100;
+    }
+    const diff = this.hackSpeed() / this.savedTotalSpeed.hack;
     return (diff - 1) * 100;
   }
 
   public energyNgu() {
     let ePower = this.totalStats.find((stat) => stat.stat === Stat.ENERGY_POWER).amount;
     let eCap = this.totalStats.find((stat) => stat.stat === Stat.ENERGY_CAP).amount;
-    return this.nguSpeed() * Utils.getValue(ePower) * Utils.getValue(eCap);
+    return this.speedModifier(Stat.NGU_SPEED) * Utils.getValue(ePower) * Utils.getValue(eCap);
   }
 
   public magicNgu() {
     let mPower = this.totalStats.find((stat) => stat.stat === Stat.MAGIC_POWER).amount;
     let mCap = this.totalStats.find((stat) => stat.stat === Stat.MAGIC_CAP).amount;
-    return this.nguSpeed() * Utils.getValue(mPower) * Utils.getValue(mCap);
+    return this.speedModifier(Stat.NGU_SPEED) * Utils.getValue(mPower) * Utils.getValue(mCap);
   }
 
-  private nguSpeed() {
-    const stat = this.totalStats.find((stat) => stat.stat === Stat.NGU_SPEED);
-    return stat.amount === 0 ? 1 : 1 + stat.amount / 100;
+  public hackSpeed() {
+    let power = this.totalStats.find((stat) => stat.stat === Stat.RES3_POWER).amount;
+    let cap = this.totalStats.find((stat) => stat.stat === Stat.RES3_CAP).amount;
+    return this.speedModifier(Stat.HACK_SPEED) * Utils.getValue(power) * Utils.getValue(cap);
+  }
+
+  private speedModifier(stat: Stat) {
+    const speed = this.totalStats.find((fstat) => fstat.stat === stat);
+    return speed.amount === 0 ? 1 : 1 + speed.amount / 100;
   }
 
   public ngOnDestroy(): void {

@@ -4,7 +4,7 @@ import {Utils} from './utils';
 import {InventoryService, SingleStat} from './inventory.service';
 import {Subscription} from 'rxjs';
 
-export type energyOrMagic = 'magic' | 'energy' | 'both'
+export type energyOrMagic = 'magic' | 'energy' | 'both' | 'hack'
 
 @Injectable()
 export class CombinationsService implements OnDestroy {
@@ -25,9 +25,11 @@ export class CombinationsService implements OnDestroy {
     for (let combination of combinations) {
       let magicNguSpeed = this.calculateNguSpeed(combination, accs, 'magic');
       let energyNguSpeed = this.calculateNguSpeed(combination, accs, 'energy');
-      let combinedCombinationNguSpeed = this.calculateCombinedNguSpeed(combination, accs);
+      let hackSpeed = this.calculateNguSpeed(combination, accs, 'hack');
+      let combinedCombinationNguSpeed = magicNguSpeed + energyNguSpeed;
       result.push({combination: combination, value: magicNguSpeed, energyOrMagic: 'magic'});
       result.push({combination: combination, value: energyNguSpeed, energyOrMagic: 'energy'});
+      result.push({combination: combination, value: hackSpeed, energyOrMagic: 'hack'});
       result.push({combination: combination, value: combinedCombinationNguSpeed, energyOrMagic: 'both'});
     }
     return result;
@@ -36,31 +38,26 @@ export class CombinationsService implements OnDestroy {
   calculateNguSpeed(combination, accs: Item[], energyOrMagic: energyOrMagic): number {
     let power = Stat.ENERGY_POWER;
     let cap = Stat.ENERGY_CAP;
+    let speed = Stat.NGU_SPEED;
 
-
-    let ePower = this.getAccsStat(Stat.ENERGY_POWER);
-    let eCap = this.getAccsStat(Stat.ENERGY_CAP);
-    let nguSpeed = this.getAccsStat(Stat.NGU_SPEED);
-
-    let equipmentCap = eCap;
-    let equipmentPower = ePower;
     if (energyOrMagic === 'magic') {
       power = Stat.MAGIC_POWER;
       cap = Stat.MAGIC_CAP;
-
-      equipmentPower = this.getAccsStat(Stat.MAGIC_POWER);
-      equipmentCap = this.getAccsStat(Stat.MAGIC_CAP);
+    } else if (energyOrMagic === 'hack') {
+      power = Stat.RES3_POWER;
+      cap = Stat.RES3_CAP;
+      speed = Stat.HACK_SPEED;
     }
+    let combinationPower = this.getAccsStat(power);
+    let combinationCap = this.getAccsStat(cap);
+    let combinationSpeed = this.getAccsStat(speed);
 
-    let combinationPower = equipmentPower;
-    let combinationCap = equipmentCap;
-    let combinationNgu = nguSpeed;
     for (let accessory of combination) {
       combinationPower += this.getCombinationStat(accs, accessory, power);
       combinationCap += this.getCombinationStat(accs, accessory, cap);
-      combinationNgu += this.getCombinationStat(accs, accessory, Stat.NGU_SPEED);
+      combinationSpeed += this.getCombinationStat(accs, accessory, speed);
     }
-    return Utils.getValue(combinationCap) * Utils.getValue(combinationPower) * Utils.getValue(combinationNgu / 100 + 1);
+    return Utils.getValue(combinationCap) * Utils.getValue(combinationPower) * Utils.getValue(combinationSpeed / 100 + 1);
   }
 
   public ngOnDestroy(): void {
@@ -76,11 +73,6 @@ export class CombinationsService implements OnDestroy {
     }
     return 0;
   }
-
-  private calculateCombinedNguSpeed(combination, accs: Item[]): number {
-    return this.calculateNguSpeed(combination, accs, 'magic') + this.calculateNguSpeed(combination, accs, 'energy');
-  }
-
   private getCombinationStat(accs: Item[], accessory, stat) {
     return Utils.getNullableValue(accs[accessory - 1].stats.find(fStat => fStat.stat == stat)) /
       2 *
