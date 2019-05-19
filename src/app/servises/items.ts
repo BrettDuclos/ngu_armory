@@ -2089,8 +2089,8 @@ export const itemList: {setName: SetName, items: Item[];}[] = [
           {stat: Stat.POWER, value: 500000},
           {stat: Stat.TOUGHNESS, value: 500000},
           {stat: Stat.ENERGY_CAP, value: 1600},
-          {stat: Stat.ENERGY_POWER, value: 16000},
-          {stat: Stat.ENERGY_BARS, value: 16000},
+          {stat: Stat.ENERGY_POWER, value: 18000},
+          {stat: Stat.ENERGY_BARS, value: 18000},
         ],
       },
       {
@@ -2102,8 +2102,8 @@ export const itemList: {setName: SetName, items: Item[];}[] = [
           {stat: Stat.POWER, value: 500000},
           {stat: Stat.TOUGHNESS, value: 500000},
           {stat: Stat.MAGIC_CAP, value: 1600},
-          {stat: Stat.MAGIC_POWER, value: 16000},
-          {stat: Stat.MAGIC_BARS, value: 16000},
+          {stat: Stat.MAGIC_POWER, value: 18000},
+          {stat: Stat.MAGIC_BARS, value: 18000},
         ],
       },
       {
