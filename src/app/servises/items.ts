@@ -2048,10 +2048,10 @@ export const itemList: {setName: SetName, items: Item[];}[] = [
         stats: [
           {stat: Stat.POWER, value: 500000},
           {stat: Stat.TOUGHNESS, value: 500000},
-          {stat: Stat.ENERGY_POWER, value: 13000},
-          {stat: Stat.MAGIC_POWER, value: 13000},
+          {stat: Stat.ENERGY_POWER, value: 16000},
+          {stat: Stat.MAGIC_POWER, value: 16000},
           {stat: Stat.MAGIC_CAP, value: 1000},
-          {stat: Stat.ENERGY_BARS, value: 12000},
+          {stat: Stat.ENERGY_BARS, value: 16000},
         ],
       },
       {
