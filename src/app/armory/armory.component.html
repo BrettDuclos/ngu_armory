@@ -135,6 +135,12 @@
               <img *ngIf='!equippedItems.accessory11.name' [src]='emptyItemIcons.accessory | async' alt=''>
             </div>
             <div class="col-1 inventory_cell">
+              <img *ngIf='equippedItems.accessory12.name'
+                   [src]='equippedItems.accessory12.img'
+                   (click)='unequip(equippedItems.accessory12)'
+                   alt=''
+                   [matTooltip]='inventoryTooltip(equippedItems.accessory12)'>
+              <img *ngIf='!equippedItems.accessory12.name' [src]='emptyItemIcons.accessory | async' alt=''>
             </div>
             <div class="col-1 inventory_cell">
               <img *ngIf='!equippedItems.boots.name' [src]='emptyItemIcons.boots | async' alt=''>

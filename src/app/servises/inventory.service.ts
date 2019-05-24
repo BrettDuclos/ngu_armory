@@ -59,6 +59,7 @@ export class InventoryService {
     accessory9: this.emptyAccessory,
     accessory10: this.emptyAccessory,
     accessory11: this.emptyAccessory,
+    accessory12: this.emptyAccessory,
   };
 
   constructor(private storage: AngularFireStorage) {
@@ -202,9 +203,12 @@ export class InventoryService {
     } else if (!this.eqItems.accessory10.name) {
       this.eqItems.accessory10.isEquippedInArmory = false;
       return this.eqItems.accessory10 = item;
+    } else if (!this.eqItems.accessory11.name) {
+      this.eqItems.accessory11.isEquippedInArmory = false;
+      return this.eqItems.accessory11 = item;
     }
-    this.eqItems.accessory11.isEquippedInArmory = false;
-    return this.eqItems.accessory11 = item;
+    this.eqItems.accessory12.isEquippedInArmory = false;
+    return this.eqItems.accessory12 = item;
   }
 
   findEquippedSlot(item: Item) {

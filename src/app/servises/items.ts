@@ -664,7 +664,7 @@ export const itemList: {setName: SetName, items: Item[];}[] = [
           {stat: Stat.POWER, value: 4000},
           {stat: Stat.TOUGHNESS, value: 6000},
           {stat: Stat.MAGIC_CAP, value: 106},
-          {stat: Stat.MAGIC_POWER, value: 359.8},
+          {stat: Stat.MAGIC_POWER, value: 369.8},
         ],
       },
       {
@@ -1217,8 +1217,8 @@ export const itemList: {setName: SetName, items: Item[];}[] = [
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/f/f0/110_-_Dragon_Wings.png/revision/latest?cb=20180420182304',
         stats: [
-          {stat: Stat.POWER, value: 163},
-          {stat: Stat.TOUGHNESS, value: 163},
+          {stat: Stat.POWER, value: 164},
+          {stat: Stat.TOUGHNESS, value: 164},
           {stat: Stat.GOLD_DROP, value: 400},
           {stat: Stat.MAGIC_CAP, value: 45.64},
           {stat: Stat.MAGIC_POWER, value: 216.2},
