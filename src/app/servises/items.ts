@@ -664,7 +664,7 @@ export const itemList: {setName: SetName, items: Item[];}[] = [
           {stat: Stat.POWER, value: 4000},
           {stat: Stat.TOUGHNESS, value: 6000},
           {stat: Stat.MAGIC_CAP, value: 106},
-          {stat: Stat.MAGIC_POWER, value: 369.8},
+          {stat: Stat.MAGIC_POWER, value: 370},
         ],
       },
       {
@@ -2502,8 +2502,6 @@ export const itemList: {setName: SetName, items: Item[];}[] = [
         slot: Slot.ACCESSORY,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/e/e4/276_-_Left_Fairy_Wing.png/revision/latest?cb=20190405170949',
         stats: [
-          {stat: Stat.POWER, value: 80000000},
-          {stat: Stat.TOUGHNESS, value: 80000000},
           {stat: Stat.RES3_POWER, value: 66},
           {stat: Stat.RES3_CAP, value: 10},
           {stat: Stat.ENERGY_CAP, value: 6600},
