@@ -1847,9 +1847,9 @@ export const itemList: {setName: SetName, items: Item[];}[] = [
       },
       {
         itemLevel: 100,
-        name: 'A Cheap Plastik Amulet',
+        name: 'A Cheap Plastic Amulet',
         slot: Slot.ACCESSORY,
-        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/8/83/218_-_A_Cheap_Plastik_Amulet.png/revision/latest?cb=20181203104051',
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/1/16/218_-_A_Cheap_Plastic_Amulet.png/revision/latest?cb=20181203104051',
         stats: [
           {stat: Stat.POWER, value: 300000},
           {stat: Stat.TOUGHNESS, value: 300000},
