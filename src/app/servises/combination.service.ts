@@ -49,7 +49,7 @@ export class CombinationsService implements OnDestroy {
       }
 
       let combinedCombinationNguSpeed = magicNguSpeed + energyNguSpeed;
-      if (combinedCombinationNguSpeedMaximum > combinedCombinationNguSpeed) {
+      if (combinedCombinationNguSpeed > combinedCombinationNguSpeedMaximum) {
         combinedCombinationNguSpeedMaximum = combinedCombinationNguSpeed;
         result.push({combination: currentCombination, value: combinedCombinationNguSpeedMaximum, energyOrMagic: 'energy_and_magic'});
       }
