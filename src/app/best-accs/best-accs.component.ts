@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {InventoryService} from '../servises/inventory.service';
 import {getAllAccessories, Item} from '../servises/items';
-import {CombinationsService, energyOrMagic} from '../servises/combination.service';
+import {CombinationsService, combinationType} from '../servises/combination.service';
 import {Subscription} from 'rxjs';
 
 @Component({
@@ -53,12 +53,12 @@ export class BestAccsComponent implements OnInit, OnDestroy {
     this.bestMNGUAccs = [];
     this.bestCombinedAccs = [];
     this.bestHackAccs = [];
-    let nguAccs: {combination: number[]; value: number; energyOrMagic: energyOrMagic}[]
+    let nguAccs: {combination: number[]; value: number; energyOrMagic: combinationType}[]
       = this.combinationsService.findBestAccsNGU(this.equippedAccs, parseInt(slotsAmount));
     for (let i = 0; i < nguAccs.length; i++) {
       let items: Item[] = [];
       for (let num of nguAccs[i].combination) {
-        items.push(this.equippedAccs[num - 1]);
+        items.push(this.equippedAccs[num]);
       }
       switch (nguAccs[i].energyOrMagic) {
         case 'magic':
@@ -67,7 +67,7 @@ export class BestAccsComponent implements OnInit, OnDestroy {
         case 'energy':
           this.bestENGUAccs.push({items: items, value: nguAccs[i].value});
           break;
-        case 'both':
+        case 'energy_and_magic':
           this.bestCombinedAccs.push({items: items, value: nguAccs[i].value});
           break;
         case 'hack':
