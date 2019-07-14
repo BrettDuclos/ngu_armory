@@ -361,7 +361,7 @@ export const itemList: {setName: SetName, items: Item[];}[] = [
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/0/00/293_-_My_Orange_Heart.png',
       },
       {
-        name: 'My Grey Heart', slot: Slot.ACCESSORY, stats: [
+        name: 'Grey Heart', slot: Slot.ACCESSORY, stats: [
           {stat: Stat.POWER, value: 2000000},
           {stat: Stat.TOUGHNESS, value: 2000000},
           {stat: Stat.RES3_CAP, value: 40},
@@ -369,7 +369,14 @@ export const itemList: {setName: SetName, items: Item[];}[] = [
         ], itemLevel: 100,
         img: 'https://vignette.wikia.nocookie.net/nguadventure/images/2/24/297_-_My_Grey_Heart.png/revision/latest?cb=20190411171956',
       },
-
+      {
+        name: 'Pink Heart', slot: Slot.ACCESSORY, stats: [
+          {stat: Stat.POWER, value: 6000000},
+          {stat: Stat.TOUGHNESS, value: 6000000},
+          {stat: Stat.WISH_SPEED, value: 20},
+        ], itemLevel: 100,
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/f/f8/344_-_My_Pink_Heart.png/revision/latest?cb=20190712231642',
+      },
     ],
   },
   {
@@ -1209,7 +1216,7 @@ export const itemList: {setName: SetName, items: Item[];}[] = [
           {stat: Stat.ENERGY_POWER, value: 200},
           {stat: Stat.MAGIC_POWER, value: 200},
         ],
-        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/3/3e/109_-_Amulet_of_Sunshine%2C_Sparkles_and_Gore.png/revision/latest?cb=20180420182230',
+        img: 'https://vignette.wikia.nocookie.net/nguadventure/images/7/79/109_-_Amulet_of_Sunshine%2C_Sparkles%2C_and_Gore.png/revision/latest?cb=20180420182230',
       },
       {
         itemLevel: 100,

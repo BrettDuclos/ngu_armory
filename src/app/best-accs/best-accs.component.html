@@ -69,6 +69,17 @@
       {{acc.value | number: '0.0-0' }}
     </div>
   </ng-container>
+  <ng-container *ngIf='bestWishAccs.length > 0'>
+    <p>
+      Top Wish speed combination:
+    </p>
+    <div *ngFor='let acc of bestWishAccs| slice:0:1'>
+      <img *ngFor='let item of acc.items '
+           [matTooltip]='inventoryTooltip(item)'
+           [src]='item.img'>
+      {{acc.value | number: '0.0-0' }}
+    </div>
+  </ng-container>
 </div>
 <div  class='content' style='margin-top: 10px;'>
   <img *ngFor='let item of allItems'

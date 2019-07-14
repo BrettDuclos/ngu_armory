@@ -4,7 +4,7 @@ import {Utils} from './utils';
 import {InventoryService, SingleStat} from './inventory.service';
 import {Subscription} from 'rxjs';
 
-export type combinationType = 'magic' | 'energy' | 'energy_and_magic' | 'hack'
+export type combinationType = 'magic' | 'energy' | 'energy_and_magic' | 'hack' | 'wish'
 type CombinationResult = {combination: number[], value: number, energyOrMagic: combinationType};
 
 @Injectable()
@@ -26,6 +26,7 @@ export class CombinationsService implements OnDestroy {
     let magicNguSpeedMaximum: number = 0;
     let energyNguSpeedMaximum: number = 0;
     let hackSpeedMaximum: number = 0;
+    let wishSpeedMaximum: number = 0;
     let combinedCombinationNguSpeedMaximum: number = 0;
 
 
@@ -46,6 +47,12 @@ export class CombinationsService implements OnDestroy {
       if (hackSpeed > hackSpeedMaximum) {
         hackSpeedMaximum = hackSpeed;
         result.push({combination: currentCombination, value: hackSpeedMaximum, energyOrMagic: 'hack'});
+      }
+
+      let wishSpeed = this.calculateWishSpeed(currentCombination, accs, 'wish');
+      if (wishSpeed > wishSpeedMaximum) {
+        wishSpeedMaximum = wishSpeed;
+        result.push({combination: currentCombination, value: wishSpeedMaximum, energyOrMagic: 'wish'});
       }
 
       let combinedCombinationNguSpeed = magicNguSpeed + energyNguSpeed;
@@ -80,6 +87,28 @@ export class CombinationsService implements OnDestroy {
       combinationSpeed += this.getCombinationStat(accs, accessory, speed);
     }
     return Utils.getValue(combinationCap) * Utils.getValue(combinationPower) * Utils.getValue(combinationSpeed / 100 + 1);
+  }
+
+  calculateWishSpeed(combination, accs: Item[], energyOrMagic: combinationType): number {
+    let energyPower = this.getAccsStat(Stat.ENERGY_POWER);
+    let energyCap = this.getAccsStat(Stat.ENERGY_CAP);
+    let magicPower = this.getAccsStat(Stat.MAGIC_POWER);
+    let magicCap = this.getAccsStat(Stat.MAGIC_CAP);
+    let res3Power = this.getAccsStat(Stat.RES3_POWER);
+    let res3Cap = this.getAccsStat(Stat.RES3_CAP);
+    let wishSpeed = this.getAccsStat(Stat.WISH_SPEED);
+
+    for (let accessory of combination) {
+      energyPower += this.getCombinationStat(accs, accessory, Stat.ENERGY_POWER);
+      energyCap += this.getCombinationStat(accs, accessory, Stat.ENERGY_CAP);
+      magicPower += this.getCombinationStat(accs, accessory, Stat.MAGIC_POWER);
+      magicCap += this.getCombinationStat(accs, accessory, Stat.MAGIC_CAP);
+      res3Power += this.getCombinationStat(accs, accessory, Stat.RES3_POWER);
+      res3Cap += this.getCombinationStat(accs, accessory, Stat.RES3_CAP);
+      wishSpeed += this.getCombinationStat(accs, accessory, Stat.WISH_SPEED);
+    }
+
+    return (Math.pow(Utils.getValue(energyPower) * Utils.getValue(energyCap), .17) * Math.pow(Utils.getValue(magicPower) * Utils.getValue(magicCap), .17) * Math.pow(Utils.getValue(res3Power) * Utils.getValue(res3Cap), .17)) * Utils.getValue(wishSpeed / 100 + 1);
   }
 
   public ngOnDestroy(): void {
